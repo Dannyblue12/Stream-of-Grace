@@ -1,0 +1,2481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programs & Services - Stream of Grace Chapel Int'l</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #F7A91A;
+      --primary-light: #FFD700;
+      --primary-dark: #e09200;
+      --dark: #333;
+      --light: #fff;
+      --gray: #666;
+      --light-gray: #f5f5f5;
+      --transition: all 0.3s ease;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
+      --shadow-gold: 0 10px 30px rgba(247, 169, 26, 0.2);
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--dark);
+      background-color: var(--light);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Navigation styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2rem;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInDown 0.8s forwards 0.2s;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .logo a {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--light);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: none;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInDown 0.8s forwards 0.4s;
+    }
+
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      margin-left: 2rem;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .nav-links a.active:after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: var(--light);
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+
+    /* Hero section */
+    .hero-section {
+      position: relative;
+      height: 70vh;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB_IMG_1744618681270.jpg-fkGRrFUogpRgUD9FPWiTokYiSdKp5G.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      padding: 0 2rem;
+    }
+
+    .hero-subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s forwards 0.2s;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--light);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s forwards 0.4s;
+      text-transform: uppercase;
+    }
+
+    .hero-title span {
+      color: var(--primary);
+      display: block;
+      font-size: 0.8em;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s forwards 0.6s;
+    }
+
+    /* Programs overview with creative cards */
+    .programs-overview {
+      padding: 5rem 2rem;
+      background-color: var(--light);
+      position: relative;
+    }
+
+    .programs-overview::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(247, 169, 26, 0.03) 0%, transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(247, 169, 26, 0.03) 0%, transparent 30%);
+      z-index: 1;
+    }
+
+    .overview-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .section-header.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      color: var(--dark);
+      margin-bottom: 1.2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .section-description {
+      font-size: 1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 3rem;
+    }
+
+    .program-card {
+      position: relative;
+      background: var(--light);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .program-card.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .program-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .program-image-container {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .program-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .program-card:hover .program-image {
+      transform: scale(1.1);
+    }
+
+    .program-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+      z-index: 1;
+    }
+
+    .program-tag {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--primary);
+      color: var(--dark);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .program-content {
+      padding: 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .program-title {
+      font-size: 1.5rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .program-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .program-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .program-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: auto;
+    }
+
+    .program-detail {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .program-detail svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--primary);
+      margin-right: 0.5rem;
+    }
+
+    .program-actions {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .program-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      gap: 0.5rem;
+    }
+
+    .program-link:hover {
+      color: var(--primary-dark);
+    }
+
+    .program-link svg {
+      width: 18px;
+      height: 18px;
+      transition: var(--transition);
+    }
+
+    .program-link:hover svg {
+      transform: translateX(3px);
+    }
+
+    .program-social {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .program-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(247, 169, 26, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .program-social a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .program-social svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--primary);
+      transition: var(--transition);
+    }
+
+    .program-social a:hover svg {
+      stroke: var(--light);
+    }
+
+    /* Featured video section */
+    .featured-video {
+      padding: 5rem 2rem;
+      background: rgba(0, 0, 0, 0.85);
+      color: var(--light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-video::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(247, 169, 26, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(247, 169, 26, 0.1) 0%, transparent 40%);
+      z-index: 1;
+    }
+
+    .video-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      margin-top: 2rem;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .video-wrapper.animate {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Services tabs with creative design */
+    .weekly-services {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #FFF8E1, #FFF0C9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .weekly-services::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f7a91a' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      z-index: 1;
+    }
+
+    .services-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .services-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3rem;
+      gap: 1rem;
+    }
+
+    .service-tab {
+      padding: 0.8rem 1.8rem;
+      background: var(--light);
+      color: var(--dark);
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      font-size: 0.95rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-tab.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-tab.active {
+      background: var(--primary);
+      color: var(--dark);
+      box-shadow: 0 8px 20px rgba(247, 169, 26, 0.3);
+    }
+
+    .service-tab:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-tab.active:hover {
+      box-shadow: 0 10px 25px rgba(247, 169, 26, 0.4);
+    }
+
+    .service-content {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .service-content.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-details {
+      background: var(--light);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-details::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--primary);
+    }
+
+    .service-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .service-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(247, 169, 26, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .service-icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: var(--primary);
+    }
+
+    .service-title-wrapper {
+      flex: 1;
+    }
+
+    .service-title {
+      font-size: 1.8rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-time {
+      font-size: 1rem;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .service-time svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--primary);
+    }
+
+    .service-description {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--gray);
+    }
+
+    .service-features {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      background: var(--light-gray);
+      padding: 1.8rem;
+      border-radius: 15px;
+      transition: var(--transition);
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 45px;
+      height: 45px;
+      background: rgba(247, 169, 26, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .feature-item:hover .feature-icon {
+      background: var(--primary);
+    }
+
+    .feature-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--primary);
+      transition: var(--transition);
+    }
+
+    .feature-item:hover .feature-icon svg {
+      stroke: var(--light);
+    }
+
+    .feature-text {
+      flex: 1;
+    }
+
+    .feature-text h4 {
+      font-size: 1.2rem;
+      color: var(--dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .feature-text p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* Past Events Timeline */
+    .past-events {
+      padding: 5rem 2rem;
+      background-color: var(--light);
+      position: relative;
+    }
+
+    .past-events::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 10% 90%, rgba(247, 169, 26, 0.03) 0%, transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(247, 169, 26, 0.03) 0%, transparent 30%);
+      z-index: 1;
+    }
+
+    .past-events-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 4rem auto 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary), rgba(247, 169, 26, 0.3));
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 100%;
+      margin-bottom: 4rem;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-content {
+      position: relative;
+      width: calc(50% - 40px);
+      background: var(--light);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transition: all 0.5s ease;
+      overflow: hidden;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      left: 0;
+      transform: translateX(-50px);
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      left: 50%;
+      transform: translateX(50px);
+    }
+
+    .timeline-item.animate:nth-child(odd) .timeline-content {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-item.animate:nth-child(even) .timeline-content {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-date {
+      position: absolute;
+      top: 20px;
+      width: 80px;
+      height: 80px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark);
+      font-weight: 700;
+      box-shadow: 0 5px 15px rgba(247, 169, 26, 0.3);
+      z-index: 10;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-date {
+      right: calc(50% - 40px);
+    }
+
+    .timeline-item:nth-child(even) .timeline-date {
+      left: calc(50% - 40px);
+    }
+
+    .timeline-month {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .timeline-day {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .timeline-year {
+      font-size: 0.9rem;
+    }
+
+    .timeline-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .timeline-body {
+      padding: 1.8rem;
+    }
+
+    .timeline-title {
+      font-size: 1.4rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .timeline-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .timeline-text {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+
+    .timeline-location {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .timeline-location svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--primary);
+    }
+
+    .timeline-social {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .timeline-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(247, 169, 26, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      169,26,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .timeline-social a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .timeline-social svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--primary);
+      transition: var(--transition);
+    }
+
+    .timeline-social a:hover svg {
+      stroke: var(--light);
+    }
+
+    /* YouTube-style Video Gallery */
+    .video-gallery {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #111, #222);
+      color: var(--light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-gallery::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(247, 169, 26, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(247, 169, 26, 0.1) 0%, transparent 40%);
+      z-index: 1;
+    }
+
+    .video-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .video-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .video-item.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .video-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-thumbnail {
+      position: relative;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+    }
+
+    .video-thumbnail img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .video-item:hover .video-thumbnail img {
+      transform: scale(1.05);
+    }
+
+    .video-duration {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      width: 60px;
+      height: 60px;
+      background: rgba(247, 169, 26, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    .play-button svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+    }
+
+    .video-item:hover .play-button {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .video-info {
+      padding: 1.5rem;
+    }
+
+    .video-title {
+      font-size: 1.1rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+      font-weight: 600;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .video-meta {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .video-date {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .video-date svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--primary);
+    }
+
+    .video-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .video-modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 900px;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* TikTok Section */
+    .tiktok-section {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #FFF8E1, #FFF0C9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tiktok-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(247, 169, 26, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(247, 169, 26, 0.05) 0%, transparent 40%);
+      z-index: 1;
+    }
+
+    .tiktok-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tiktok-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .tiktok-profile {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      background: #fff;
+      position: relative;
+    }
+
+    .tiktok-profile.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tiktok-profile img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .tiktok-visit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary);
+      color: var(--dark);
+      font-weight: 600;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: var(--transition);
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 5px 15px rgba(247, 169, 26, 0.2);
+    }
+
+    .tiktok-visit-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(247, 169, 26, 0.3);
+    }
+
+    .tiktok-visit-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .tiktok-text {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .tiktok-text.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tiktok-title {
+      font-size: 1.8rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .tiktok-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .tiktok-description {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--gray);
+    }
+
+    .tiktok-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .tiktok-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary);
+      color: var(--dark);
+      font-weight: 600;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: var(--transition);
+      gap: 0.5rem;
+    }
+
+    .tiktok-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(247, 169, 26, 0.3);
+    }
+
+    .tiktok-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Footer Styles */
+    .footer {
+      background-color: #222;
+      color: var(--light);
+      padding: 5rem 2rem 1rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-logo img {
+      height: 50px;
+    }
+
+    .footer-logo h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .footer-column h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-column h4::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-column ul li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-column ul li a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--light);
+      z-index: 1000;
+      padding: 2rem;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .mobile-nav.active {
+      right: 0;
+    }
+
+    .mobile-nav-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .mobile-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .mobile-logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .mobile-logo span {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .close-menu {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--dark);
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .close-menu:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .mobile-nav a {
+      color: var(--dark);
+      text-decoration: none;
+      padding: 1rem 0;
+      font-size: 1.1rem;
+      border-bottom: 1px solid #eee;
+      transition: var(--transition);
+      display: block;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--primary);
+      padding-left: 0.5rem;
+    }
+
+    .mobile-nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive styles */
+    @media (max-width: 767px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .hero-description {
+        font-size: 0.95rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .service-details {
+        padding: 1.8rem;
+      }
+      
+      .service-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      }
+      
+      .service-title {
+        font-size: 1.6rem;
+      }
+
+      .timeline::before {
+        left: 30px;
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        width: calc(100% - 60px);
+        left: 60px;
+        transform: translateX(0);
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-date,
+      .timeline-item:nth-child(even) .timeline-date {
+        left: 0;
+        right: auto;
+      }
+      
+      .video-wrapper {
+        border-radius: 10px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+      
+      .menu-toggle {
+        display: none;
+      }
+      
+      .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .service-features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-links {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      
+      .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .tiktok-content {
+        flex-direction: row;
+      }
+
+      .tiktok-text {
+        text-align: left;
+      }
+
+      .tiktok-title::after {
+        left: 0;
+        transform: none;
+      }
+
+      .tiktok-buttons {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .programs-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .video-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="logo">
+    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20250404-021620~2-WDuAUGmgBDlCFXIien2qChM03KUl9t.png" alt="Stream of Grace Logo">
+    <a href="/">Stream of Grace Chapel Int'l</a>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+      <a href="Programs.html">Programs & Services</a>
+      <a href="#location">Location & Services</a>
+    
+      <a href="Contact-us.html">Contact</a>
+  </div>
+  <button class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="hero-content">
+    <p class="hero-subtitle">Experience the Presence of God</p>
+    <h1 class="hero-title">Programs & <span>Services</span></h1>
+    <p class="hero-description">Discover our vibrant community of faith through our various programs, services, and ministry opportunities designed to help you grow spiritually and connect with others.</p>
+  </div>
+</div>
+
+<!-- Programs Overview Section -->
+<section class="programs-overview" id="programs">
+  <div class="overview-container">
+    <div class="section-header">
+      <p class="section-subtitle">Discover Our Programs</p>
+      <h2 class="section-title">Life-Changing Experiences</h2>
+      <p class="section-description">Explore the various programs we offer to nurture spiritual growth and build a strong community of believers.</p>
+    </div>
+    
+    <div class="programs-grid">
+      <div class="program-card">
+        <div class="program-image-container">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB_IMG_1744618681270.jpg-fkGRrFUogpRgUD9FPWiTokYiSdKp5G.jpeg" alt="Sunday Worship" class="program-image">
+          <div class="program-overlay"></div>
+          <div class="program-tag">Weekly</div>
+        </div>
+        <div class="program-content">
+          <h3 class="program-title">Sunday Bootcamp Service</h3>
+          <p class="program-text">Our main worship service where we come together to praise God, hear His Word, and experience His presence. The service includes vibrant worship, powerful preaching, and a time of ministry.</p>
+          <div class="program-details">
+            <div class="program-detail">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              8:30 - 10:30 AM
+            </div>
+            <div class="program-detail">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Main Sanctuary
+            </div>
+          </div>
+          <div class="program-actions">
+            <a href="#" class="program-link">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <div class="program-social">
+              <a href="#" aria-label="Share on Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
+              <a href="#" aria-label="Share on Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="program-card">
+        <div class="program-image-container">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB_IMG_1744618744442.jpg-lqJejxkhG28ndE4lvcLepTJUCmpwoK.jpeg" alt="Rhema Service" class="program-image">
+          <div class="program-overlay"></div>
+          <div class="program-tag">Thursday</div>
+        </div>
+        <div class="program-content">
+          <h3 class="program-title">Rhema Service</h3>
+          <p class="program-text">A midweek service focused on in-depth Bible study and spiritual growth. This service provides deeper insights into God's Word and practical applications for daily living.</p>
+          <div class="program-details">
+            <div class="program-detail">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              5:30 - 7:30 AM
+            </div>
+            <div class="program-detail">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Fellowship Hall
+            </div>
+          </div>
+          <div class="program-actions">
+            <a href="#" class="program-link">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <div class="program-social">
+              <a href="#" aria-label="Share on Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
+              <a href="#" aria-label="Share on Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="program-card">
+        <div class="program-image-container">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB_IMG_1744618674366.jpg-GglATTIEAFB5urhhj3cj9Vw9Urntl6.jpeg" alt="Prayer Chain" class="program-image">
+          <div class="program-overlay"></div>
+          <div class="program-tag">Monthly</div>
+        </div>
+        <div class="program-content">
+          <h3 class="program-title">Prayer Chain</h3>
+          <p class="program-text">A dedicated time of corporate prayer where we intercede for our church, community, nation, and world. Join us as we seek God's face and pray for breakthrough in various areas.</p>
+          <div class="program-details">
+            <div class="program-detail">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              First Saturday of Every Month
+            </div>
+            <div class="program-detail">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Prayer Room
+            </div>
+          </div>
+          <div class="program-actions">
+            <a href="#" class="program-link">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <div class="program-social">
+              <a href="#" aria-label="Share on Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
+              <a href="#" aria-label="Share on Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Video Section -->
+<section class="featured-video" id="featured">
+  <div class="video-container">
+    <div class="section-header">
+      <p class="section-subtitle">Watch and Experience</p>
+      <h2 class="section-title">Featured Sermon</h2>
+      <p class="section-description">Experience the power and presence of God through our latest sermon that will inspire and transform your life.</p>
+    </div>
+    
+    <div class="video-wrapper">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/LaeaJwxmu3E?autoplay=0&rel=0" title="Stream of Grace Chapel Featured Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Weekly Services Section -->
+<section class="weekly-services" id="services">
+  <div class="services-container">
+    <div class="section-header">
+      <p class="section-subtitle">Join Us in Worship</p>
+      <h2 class="section-title">Weekly Services</h2>
+      <p class="section-description">Join us for our regular weekly services designed to help you grow in your relationship with God.</p>
+    </div>
+    
+    <div class="services-tabs">
+      <button class="service-tab active" data-tab="sunday">Sunday Service</button>
+      <button class="service-tab" data-tab="thursday">Thursday Service</button>
+      <button class="service-tab" data-tab="prayer">Prayer Chain</button>
+    </div>
+    
+    <div class="service-content active" id="sunday-content">
+      <div class="service-details">
+        <div class="service-info">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </div>
+            <div class="service-title-wrapper">
+              <h3 class="service-title">Sunday Bootcamp Service</h3>
+              <p class="service-time">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                Every Sunday, 8:30 - 10:30 AM
+              </p>
+            </div>
+          </div>
+          <p class="service-description">
+            Our Sunday Bootcamp Service is the main gathering of our church family. It's a time of vibrant worship, powerful preaching, and experiencing the presence of God. Pastor Peggy Lipton delivers anointed messages that are both inspiring and practical for everyday living. The service includes a time of praise and worship, prayer, offering, and ministry.
+          </p>
+        </div>
+        
+        <div class="service-features">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Worship Experience</h4>
+              <p>Our worship team leads the congregation in a powerful time of praise and worship, creating an atmosphere for God's presence.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Word of God</h4>
+              <p>Pastor Peggy delivers anointed messages that are relevant, practical, and life-changing, helping believers grow in their faith.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Children's Church</h4>
+              <p>We provide age-appropriate teaching and activities for children during the main service, helping them grow in their understanding of God.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Ministry Time</h4>
+              <p>After the message, there is a time of ministry where people can receive prayer for healing, deliverance, and other needs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="service-content" id="thursday-content">
+      <div class="service-details">
+        <div class="service-info">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            </div>
+            <div class="service-title-wrapper">
+              <h3 class="service-title">Rhema Service</h3>
+              <p class="service-time">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                Every Thursday, 5:30 - 7:30 AM
+              </p>
+            </div>
+          </div>
+          <p class="service-description">
+            Our Rhema Service is a midweek gathering focused on in-depth Bible study and spiritual growth. This early morning service provides deeper insights into God's Word and practical applications for daily living. It's a time of refreshing and equipping believers to live victorious lives throughout the week.
+          </p>
+        </div>
+        
+        <div class="service-features">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Bible Study</h4>
+              <p>In-depth exploration of Scripture, helping believers gain a deeper understanding of God's Word and its application to daily life.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Spiritual Growth</h4>
+              <p>Focused teaching on spiritual disciplines, character development, and growing in relationship with God.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Encouragement</h4>
+              <p>A time of encouragement and motivation to help believers face the challenges of the week with faith and confidence.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Prophetic Ministry</h4>
+              <p>Opportunity to receive prophetic insights and guidance through Pastor Peggy's prophetic gift.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="service-content" id="prayer-content">
+      <div class="service-details">
+        <div class="service-info">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+            </div>
+            <div class="service-title-wrapper">
+              <h3 class="service-title">Prayer Chain</h3>
+              <p class="service-time">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                First Saturday of Every Month
+              </p>
+            </div>
+          </div>
+          <p class="service-description">
+            Our Prayer Chain is a dedicated time of corporate prayer where we intercede for our church, community, nation, and world. It's a powerful gathering where believers come together to seek God's face and pray for breakthrough in various areas. This monthly prayer meeting is open to all who desire to join in united prayer.
+          </p>
+        </div>
+        
+        <div class="service-features">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Intercessory Prayer</h4>
+              <p>Focused prayer for specific needs, situations, and people, standing in the gap on behalf of others.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Community Prayer</h4>
+              <p>Prayer for our local community, addressing specific needs, challenges, and opportunities for ministry.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Global Impact</h4>
+              <p>Prayer for nations, global issues, missionaries, and the advancement of God's kingdom worldwide.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Personal Needs</h4>
+              <p>Opportunity to receive prayer for personal needs, healing, deliverance, and breakthrough in various areas of life.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Past Events Timeline -->
+<section class="past-events" id="past-events">
+  <div class="past-events-container">
+    <div class="section-header">
+      <p class="section-subtitle">Our Journey Together</p>
+      <h2 class="section-title">Past Events</h2>
+      <p class="section-description">Experience the impact of our past events that have transformed lives and strengthened our community.</p>
+    </div>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">
+          <span class="timeline-month">Feb</span>
+          <span class="timeline-day">23</span>
+          <span class="timeline-year">2025</span>
+        </div>
+        <div class="timeline-content">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB_IMG_1745680642464.jpg-mT2lp3p3fcwoXDOfk7C7UBuH7MwaMu.jpeg" alt="RE-IGNITE CONFERENCE" class="timeline-image">
+          <div class="timeline-body">
+            <h3 class="timeline-title">RE-IGNITE CONFERENCE</h3>
+            <p class="timeline-text">February 23rd 2025 was one to remember. RE-IGNITE CONFERENCE brought the heavens to Stream of Grace Chapel International as Bishop Dr Rain Onuigbo from Nigeria delivered a spirit filled Service. The Apostolic and Prophetic impartation conference saw people get healed, the man of God giving prophesies and God establishing deliverance. It was an awesome Sunday.</p>
+            <div class="timeline-footer">
+              <div class="timeline-location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Main Sanctuary
+              </div>
+              <div class="timeline-social">
+                <a href="#" aria-label="View on Facebook">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+                <a href="#" aria-label="View on Instagram">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-date">
+          <span class="timeline-month">Nov</span>
+          <span class="timeline-day">10</span>
+          <span class="timeline-year">2024</span>
+        </div>
+        <div class="timeline-content">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB_IMG_1745680656764.jpg-4PPYK3E1YvBzwSpNIC2MfB0hdwcoN3.jpeg" alt="Apostolic Impartation Conference" class="timeline-image">
+          <div class="timeline-body">
+            <h3 class="timeline-title">Apostolic Impartation Conference</h3>
+            <p class="timeline-text">Apostolic Impartation Conference came off on the 10th of November 2024 and it was a spectacle to behold. The guest speaker on that day was Apostle Williams Nana Adjei from the United Kingdom. The event witnessed life changing teachings, powerful worship and the Impartation of the Holy Ghost. Overall it was a great experience and an encounter with God.</p>
+            <div class="timeline-footer">
+              <div class="timeline-location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Main Sanctuary
+              </div>
+              <div class="timeline-social">
+                <a href="#" aria-label="View on Facebook">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+                <a href="#" aria-label="View on Instagram">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YouTube-style Video Gallery -->
+<section class="video-gallery" id="sermons">
+  <div class="video-container">
+    <div class="section-header">
+      <p class="section-subtitle">Watch and Learn</p>
+      <h2 class="section-title">Latest Sermons</h2>
+      <p class="section-description">Explore our collection of inspiring sermons and teachings that will help you grow in your faith journey.</p>
+    </div>
+    
+    <div class="video-grid">
+      <div class="video-item">
+        <div class="video-thumbnail">
+          <img src="https://img.youtube.com/vi/LaeaJwxmu3E/maxresdefault.jpg" alt="Sermon Video">
+          <div class="video-duration">34:26</div>
+          <div class="play-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">The Power of Faith: Overcoming Life's Challenges</h3>
+          <div class="video-meta">
+            <div class="video-date">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              2 weeks ago
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="video-item">
+        <div class="video-thumbnail">
+          <img src="https://img.youtube.com/vi/7lsXK8-BZaA/maxresdefault.jpg" alt="Sermon Video">
+          <div class="video-duration">42:18</div>
+          <div class="play-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">Walking in Divine Favor: Keys to God's Blessings</h3>
+          <div class="video-meta">
+            <div class="video-date">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              1 month ago
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="video-item">
+        <div class="video-thumbnail">
+          <img src="https://img.youtube.com/vi/db6SLozQ8Xo/maxresdefault.jpg" alt="Sermon Video">
+          <div class="video-duration">38:45</div>
+          <div class="play-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">Spiritual Warfare: Standing Firm Against the Enemy</h3>
+          <div class="video-meta">
+            <div class="video-date">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              2 months ago
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="video-item">
+        <div class="video-thumbnail">
+          <img src="https://img.youtube.com/vi/3pRPwEQZkWw/maxresdefault.jpg" alt="Sermon Video">
+          <div class="video-duration">45:12</div>
+          <div class="play-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">The Power of the Holy Spirit in Everyday Life</h3>
+          <div class="video-meta">
+            <div class="video-date">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              3 months ago
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TikTok Section -->
+<section class="tiktok-section" id="social-media">
+  <div class="tiktok-container">
+    <div class="section-header">
+      <p class="section-subtitle">Connect With Us</p>
+      <h2 class="section-title">Follow Our Social Media</h2>
+      <p class="section-description">Stay connected with us through our social media channels for daily inspiration, event updates, and more.</p>
+    </div>
+    
+    <div class="tiktok-content">
+      <div class="tiktok-profile animate">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20250426-213745~2-ncT80msBwizoG8WhXFRIdPIVtNJs9A.png" alt="Stream of Grace Chapel TikTok Profile" />
+        <a href="#" class="tiktok-visit-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l5 5-5 5"></path><path d="M4 4v7a4 4 0 0 0 4 4h12"></path></svg>
+          Visit TikTok
+        </a>
+      </div>
+      
+      <div class="tiktok-text animate">
+        <h3 class="tiktok-title">Join Us on TikTok</h3>
+        <p class="tiktok-description">Follow us on TikTok @sgcitheunicorn for short inspirational messages, behind-the-scenes looks at our church events, and more engaging content that will encourage your faith journey.</p>
+        <div class="tiktok-buttons">
+          <a href="#" class="tiktok-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            Follow Us
+          </a>
+          <a href="#" class="tiktok-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+            Share Content
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Modal -->
+<div class="video-modal" id="videoModal">
+  <span class="close-modal">&times;</span>
+  <div class="video-modal-content">
+    <div class="video-frame">
+      <iframe id="videoFrame" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20250404-021620~2-WDuAUGmgBDlCFXIien2qChM03KUl9t.png" alt="Stream of Grace Logo">
+      <h3>Stream of Grace Chapel Int'l</h3>
+    </div>
+    
+    <div class="footer-links">
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="programs-services.html">Programs & Services</a></li>
+          <li><a href="#location">Location & Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Prayer Requests</a></li>
+          <li><a href="#">Devotionals</a></li>
+          <li><a href="#">Giving</a></li>
+          <li><a href="#">Volunteer</a></li>
+          <li><a href="#">Events Calendar</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#">Live Stream</a></li>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Testimonials</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2025 Stream of Grace Chapel Int'l. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Mobile menu toggle functionality
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', function() {
+        // Create mobile menu if it doesn't exist
+        if (!document.querySelector('.mobile-nav')) {
+          // Create overlay
+          const overlay = document.createElement('div');
+          overlay.className = 'mobile-nav-overlay';
+          document.body.appendChild(overlay);
+          
+          // Create mobile nav
+          const mobileNav = document.createElement('div');
+          mobileNav.className = 'mobile-nav';
+          
+          // Create mobile nav header
+          const mobileNavHeader = document.createElement('div');
+          mobileNavHeader.className = 'mobile-nav-header';
+          
+          // Add logo to mobile nav
+          const mobileLogo = document.createElement('div');
+          mobileLogo.className = 'mobile-logo';
+          mobileLogo.innerHTML = `
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20250404-021620~2-WDuAUGmgBDlCFXIien2qChM03KUl9t.png" alt="Stream of Grace Logo">
+            <span>Stream of Grace</span>
+          `;
+          mobileNavHeader.appendChild(mobileLogo);
+          
+          // Add close button
+          const closeBtn = document.createElement('button');
+          closeBtn.className = 'close-menu';
+          closeBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+          mobileNavHeader.appendChild(closeBtn);
+          
+          mobileNav.appendChild(mobileNavHeader);
+          
+          // Add links
+          const links = Array.from(navLinks.querySelectorAll('a'));
+          links.forEach(link => {
+            const newLink = link.cloneNode(true);
+            mobileNav.appendChild(newLink);
+          });
+          
+          document.body.appendChild(mobileNav);
+          
+          // Add event listeners
+          closeBtn.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            setTimeout(() => {
+              document.body.removeChild(mobileNav);
+              document.body.removeChild(overlay);
+            }, 300);
+          });
+          
+          overlay.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            setTimeout(() => {
+              document.body.removeChild(mobileNav);
+              document.body.removeChild(overlay);
+            }, 300);
+          });
+          
+          // Show menu with animation
+          setTimeout(() => {
+            mobileNav.classList.add('active');
+            overlay.classList.add('active');
+          }, 10);
+        }
+      });
+    }
+    
+    // Service tabs functionality
+    const serviceTabs = document.querySelectorAll('.service-tab');
+    const serviceContents = document.querySelectorAll('.service-content');
+    
+    serviceTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class from all tabs and contents
+        serviceTabs.forEach(t => t.classList.remove('active'));
+        serviceContents.forEach(c => c.classList.remove('active'));
+        
+        // Add active class to clicked tab and corresponding content
+        tab.classList.add('active');
+        const tabId = tab.getAttribute('data-tab');
+        document.getElementById(`${tabId}-content`).classList.add('active');
+      });
+    });
+    
+    // Enhanced scroll animation for elements
+    const observeElements = () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      // Observe elements with animation classes
+      document.querySelectorAll('.section-header, .program-card, .service-tab, .timeline-item, .video-item, .video-wrapper, .tiktok-profile, .tiktok-text').forEach(el => {
+        observer.observe(el);
+      });
+    };
+    
+    // Call the observe function
+    observeElements();
+    
+    // Video modal functionality
+    const videoItems = document.querySelectorAll('.video-item');
+    const videoModal = document.getElementById('videoModal');
+    const videoFrame = document.getElementById('videoFrame');
+    const closeModal = document.querySelector('.close-modal');
+    
+    // YouTube video IDs
+    const videoIds = {
+      0: 'LaeaJwxmu3E',
+      1: '7lsXK8-BZaA',
+      2: 'db6SLozQ8Xo',
+      3: '3pRPwEQZkWw'
+    };
+    
+    videoItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        videoFrame.src = `https://www.youtube.com/embed/${videoIds[index]}?autoplay=1&rel=0`;
+        videoModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+      });
+    });
+    
+    closeModal.addEventListener('click', () => {
+      videoFrame.src = '';
+      videoModal.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    });
+    
+    // Close modal when clicking outside the content
+    videoModal.addEventListener('click', (e) => {
+      if (e.target === videoModal) {
+        videoFrame.src = '';
+        videoModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+      }
+    });
+    
+    // Close modal on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && videoModal.style.display === 'flex') {
+        videoFrame.src = '';
+        videoModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+      }
+    });
+  });
+</script>
+</body>
+</html>

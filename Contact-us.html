@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Stream of Grace Chapel Int'l</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #F7A91A;
+      --primary-light: #FFD700;
+      --primary-dark: #e09200;
+      --dark: #333;
+      --light: #fff;
+      --gray: #666;
+      --light-gray: #f5f5f5;
+      --transition: all 0.3s ease;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
+      --shadow-gold: 0 10px 30px rgba(247, 169, 26, 0.2);
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--dark);
+      background-color: var(--light);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Navigation styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2rem;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInDown 0.8s forwards 0.2s;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .logo a {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--light);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: none;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInDown 0.8s forwards 0.4s;
+    }
+
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      margin-left: 2rem;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .nav-links a.active:after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: var(--light);
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+
+    /* Hero section */
+    .hero-section {
+      position: relative;
+      height: 60vh;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB_IMG_1744618681270.jpg-fkGRrFUogpRgUD9FPWiTokYiSdKp5G.jpeg');
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 4rem;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      padding: 0 2rem;
+    }
+
+    .hero-subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s forwards 0.2s;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--light);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s forwards 0.4s;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s forwards 0.6s;
+    }
+
+    /* Contact section */
+    .contact-section {
+      padding: 2rem;
+      position: relative;
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .contact-info {
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      border-radius: 15px;
+      padding: 2.5rem;
+      color: var(--dark);
+      box-shadow: var(--shadow-gold);
+      position: relative;
+      overflow: hidden;
+      transform: translateY(50px);
+      opacity: 0;
+      transition: transform 0.8s ease, opacity 0.8s ease;
+    }
+
+    .contact-info.animate {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .contact-info::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.2) 0%, transparent 40%);
+      z-index: 1;
+    }
+
+    .contact-info-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-info-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-info-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--dark);
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .contact-info-item:hover .contact-icon {
+      background: rgba(255, 255, 255, 0.4);
+      transform: scale(1.1);
+    }
+
+    .contact-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--dark);
+    }
+
+    .contact-text h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-text p, .contact-text a {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--dark);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contact-text a:hover {
+      color: var(--light);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-link {
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--dark);
+      fill: var(--dark);
+    }
+
+    .office-hours {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .office-hours h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hours-list {
+      list-style: none;
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .day {
+      font-weight: 600;
+    }
+
+    /* Contact Form */
+    .contact-form-container {
+      background: var(--light);
+      border-radius: 15px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      transform: translateY(50px);
+      opacity: 0;
+      transition: transform 0.8s ease, opacity 0.8s ease;
+    }
+
+    .contact-form-container.animate {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .form-header {
+      margin-bottom: 2rem;
+    }
+
+    .form-title {
+      font-size: 1.9rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .form-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .form-description {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .form-group {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .input-group input,
+    .input-group textarea,
+    .input-group select {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: var(--light);
+      color: var(--dark);
+      transition: var(--transition);
+    }
+
+    .input-group label {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      font-size: 1rem;
+      color: #999;
+      pointer-events: none;
+      transition: var(--transition);
+      background: var(--light);
+      padding: 0 0.5rem;
+    }
+
+    .input-group input:focus,
+    .input-group textarea:focus,
+    .input-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(247, 169, 26, 0.2);
+    }
+
+    .input-group input:focus ~ label,
+    .input-group textarea:focus ~ label,
+    .input-group select:focus ~ label,
+    .input-group input:not(:placeholder-shown) ~ label,
+    .input-group textarea:not(:placeholder-shown) ~ label,
+    .input-group select:valid ~ label {
+      top: -0.5rem;
+      left: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--primary);
+    }
+
+    .input-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      color: var(--dark);
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-gold);
+      margin-top: 1rem;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .submit-button:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.2);
+      transition: var(--transition);
+      z-index: -1;
+    }
+
+    .submit-button:hover:before {
+      width: 100%;
+    }
+
+    .submit-button svg {
+      stroke: var(--dark);
+      transition: var(--transition);
+    }
+
+    .submit-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(247, 169, 26, 0.3);
+    }
+
+    .submit-button:hover svg {
+      transform: translateX(5px);
+    }
+
+    /* Map Section */
+    .map-section {
+      padding: 4rem 2rem;
+      background-color: var(--light-gray);
+    }
+
+    .map-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .map-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .map-title {
+      font-size: 2.0rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .map-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .map-description {
+      font-size: 1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .map-wrapper {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 4rem 2rem;
+    }
+
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .faq-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .faq-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .faq-description {
+      font-size: 1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .accordion {
+      margin-top: 2rem;
+    }
+
+    .accordion-item {
+      background: var(--light);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      padding: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .accordion-header:hover {
+      background: rgba(247, 169, 26, 0.05);
+    }
+
+    .accordion-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .accordion-icon {
+      width: 24px;
+      height: 24px;
+      transition: var(--transition);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .accordion-text {
+      padding: 0 1.5rem 1.5rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--gray);
+    }
+
+    .accordion-item.active .accordion-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Call to Action */
+    .cta-section {
+      padding: 4rem 2rem;
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB_IMG_1744618744442.jpg-lqJejxkhG28ndE4lvcLepTJUCmpwoK.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--light);
+      text-align: center;
+    }
+
+    .cta-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-description {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .cta-btn {
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .cta-btn-primary {
+      background: var(--primary);
+      color: var(--dark);
+      box-shadow: 0 5px 15px rgba(247, 169, 26, 0.3);
+    }
+
+    .cta-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(247, 169, 26, 0.4);
+    }
+
+    .cta-btn-secondary {
+      background: transparent;
+      color: var(--light);
+      border: 2px solid var(--light);
+    }
+
+    .cta-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #222;
+      color: var(--light);
+      padding: 4rem 2rem 1rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-logo img {
+      height: 50px;
+    }
+
+    .footer-logo h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .footer-column h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-column h4::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-column ul li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-column ul li a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Form Success Message */
+    .success-message {
+      display: none;
+      background: rgba(76, 175, 80, 0.1);
+      border: 1px solid #4CAF50;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .success-message.show {
+      display: block;
+      animation: fadeIn 0.5s forwards;
+    }
+
+    .success-icon {
+      width: 60px;
+      height: 60px;
+      background: #4CAF50;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .success-icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: white;
+    }
+
+    .success-title {
+      font-size: 1.5rem;
+      color: #4CAF50;
+      margin-bottom: 0.5rem;
+    }
+
+    .success-text {
+      font-size: 1rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--light);
+      z-index: 1000;
+      padding: 2rem;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .mobile-nav.active {
+      right: 0;
+    }
+
+    .mobile-nav-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .mobile-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .mobile-logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .mobile-logo span {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .close-menu {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--dark);
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .close-menu:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .mobile-nav a {
+      color: var(--dark);
+      text-decoration: none;
+      padding: 1rem 0;
+      font-size: 1.1rem;
+      border-bottom: 1px solid #eee;
+      transition: var(--transition);
+      display: block;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--primary);
+      padding-left: 0.5rem;
+    }
+
+    .mobile-nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .mobile-nav-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive styles */
+    @media (max-width: 767px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .hero-description {
+        font-size: 0.95rem;
+      }
+      
+      .form-group {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+      
+      .menu-toggle {
+        display: none;
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr 2fr;
+      }
+      
+      .footer-links {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      
+      .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20250404-021620~2-WDuAUGmgBDlCFXIien2qChM03KUl9t.png" alt="Stream of Grace Logo">
+      <a href="/">Stream of Grace Chapel Int'l</a>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+      <a href="Programs.html">Programs & Services</a>
+      <a href="#location">Location & Services</a>
+    
+      <a href="Contact-us.html">Contact</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <p class="hero-subtitle">Get in Touch With Us</p>
+      <h1 class="hero-title">Contact Us</h1>
+      <p class="hero-description">We'd love to hear from you. Reach out to us with any questions, prayer requests, or to learn more about our church community.</p>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="contact-info-content">
+          <h2 class="contact-info-title">Contact Information</h2>
+          
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div class="contact-text">
+              <h3>Our Location</h3>
+              <p>Unicorn Tabernacle, Mallam<br>Near Socca Bet, Ghana</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div class="contact-text">
+              <h3>Phone</h3>
+              <p><a href="tel:+2330558146003">(+233) 0558146003</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div class="contact-text">
+              <h3>Email</h3>
+              <p><a href="mailto:info@streamofgrace.org">info@streamofgrace.org</a></p>
+            </div>
+          </div>
+          
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="white"></path><circle cx="17.5" cy="6.5" r="1.5" fill="white"></circle></svg>
+            </a>
+            <a href="#" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"></polygon></svg>
+            </a>
+            <a href="#" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path></svg>
+            </a>
+          </div>
+          
+          <div class="office-hours">
+            <h3>Office Hours</h3>
+            <ul class="hours-list">
+              <li><span class="day">Monday - Friday:</span> <span>9:00 AM - 5:00 PM</span></li>
+              <li><span class="day">Saturday:</span> <span>10:00 AM - 2:00 PM</span></li>
+              <li><span class="day">Sunday:</span> <span>7:30 AM - 12:00 PM</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form-container">
+        <div class="success-message" id="successMessage">
+          <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h3 class="success-title">Message Sent Successfully!</h3>
+          <p class="success-text">Thank you for reaching out. We'll get back to you as soon as possible.</p>
+        </div>
+        
+        <div class="form-header">
+          <h2 class="form-title">Send Us a Message</h2>
+          <p class="form-description">Fill out the form below and we'll get back to you as soon as possible.</p>
+        </div>
+        
+        <form id="contactForm">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" id="firstName" name="firstName" placeholder=" " required>
+              <label for="firstName">First Name</label>
+            </div>
+            
+            <div class="input-group">
+              <input type="text" id="lastName" name="lastName" placeholder=" " required>
+              <label for="lastName">Last Name</label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="input-group">
+              <input type="email" id="email" name="email" placeholder=" " required>
+              <label for="email">Email Address</label>
+            </div>
+            
+            <div class="input-group">
+              <input type="tel" id="phone" name="phone" placeholder=" ">
+              <label for="phone">Phone Number (Optional)</label>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <select id="inquiryType" name="inquiryType" required>
+              <option value="" disabled selected></option>
+              <option value="general">General Inquiry</option>
+              <option value="prayer">Prayer Request</option>
+              <option value="visit">Planning a Visit</option>
+              <option value="volunteer">Volunteer Opportunities</option>
+              <option value="other">Other</option>
+            </select>
+            <label for="inquiryType">Type of Inquiry</label>
+          </div>
+          
+          <div class="input-group">
+            <textarea id="message" name="message" placeholder=" " required></textarea>
+            <label for="message">Your Message</label>
+          </div>
+          
+          <button type="submit" class="submit-button">
+            <span>Send Message</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section" id="location">
+    <div class="map-container">
+      <div class="map-header">
+        <h2 class="map-title">Find Us</h2>
+        <p class="map-description">We're located in Mallam, near Socca Bet, Ghana. Join us for our weekly services and events.</p>
+      </div>
+      
+      <div class="map-wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.8176171114584!2d-0.2995!3d5.5756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzQnMzIuMiJOIDDCsDE3JzU4LjIiVw!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="faq-container">
+      <div class="faq-header">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+        <p class="faq-description">Find answers to common questions about our church and services.</p>
+      </div>
+      
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3 class="accordion-title">What time are your Sunday services?</h3>
+            <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-text">
+              Our Sunday Bootcamp Service is held every Sunday from 8:30 AM to 10:30 AM. We encourage you to arrive about 15 minutes early to get settled and connect with others before the service begins.
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3 class="accordion-title">Do you have programs for children?</h3>
+            <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-text">
+              Yes, we have a vibrant children's ministry that runs during our Sunday services. Our dedicated team provides age-appropriate teaching and activities to help children grow in their faith in a fun and engaging environment.
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3 class="accordion-title">How can I become a member of the church?</h3>
+            <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-text">
+              We offer membership classes periodically throughout the year. These classes provide an overview of our church's vision, values, and beliefs. After completing the class, you'll have the opportunity to meet with one of our pastors and officially join our church family.
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3 class="accordion-title">Do you offer counseling services?</h3>
+            <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-text">
+              Yes, our pastoral team provides spiritual counseling for various life situations. Whether you're facing challenges in your marriage, dealing with grief, or seeking guidance in other areas of life, our pastors are available to provide biblical counsel and prayer support.
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3 class="accordion-title">How can I get involved in serving at the church?</h3>
+            <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-text">
+              We have numerous ministry opportunities available, from worship team to children's ministry, hospitality, media, and more. Fill out our volunteer form on this page or speak with one of our team members on Sunday to learn about current opportunities that match your gifts and interests.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">Join Us This Sunday</h2>
+      <p class="cta-description">Experience the power of worship and the Word in a community filled with love and faith.</p>
+      <div class="cta-buttons">
+        <a href="#" class="cta-btn cta-btn-primary">Watch Live</a>
+        <a href="programs-services.html" class="cta-btn cta-btn-secondary">View Our Programs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20250404-021620~2-WDuAUGmgBDlCFXIien2qChM03KUl9t.png" alt="Stream of Grace Logo">
+        <h3>Stream of Grace Chapel Int'l</h3>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="programs-services.html">Programs & Services</a></li>
+            <li><a href="contact-us.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Prayer Requests</a></li>
+            <li><a href="#">Devotionals</a></li>
+            <li><a href="#">Giving</a></li>
+            <li><a href="#">Volunteer</a></li>
+            <li><a href="#">Events Calendar</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="#">Live Stream</a></li>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Stream of Grace Chapel Int'l. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Navbar scroll effect
+      const navbar = document.getElementById('navbar');
+      
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+      
+      // Mobile menu toggle functionality
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+          // Create mobile menu if it doesn't exist
+          if (!document.querySelector('.mobile-nav')) {
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'mobile-nav-overlay';
+            document.body.appendChild(overlay);
+            
+            // Create mobile nav
+            const mobileNav = document.createElement('div');
+            mobileNav.className = 'mobile-nav';
+            
+            // Create mobile nav header
+            const mobileNavHeader = document.createElement('div');
+            mobileNavHeader.className = 'mobile-nav-header';
+            
+            // Add logo to mobile nav
+            const mobileLogo = document.createElement('div');
+            mobileLogo.className = 'mobile-logo';
+            mobileLogo.innerHTML = `
+              <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20250404-021620~2-WDuAUGmgBDlCFXIien2qChM03KUl9t.png" alt="Stream of Grace Logo">
+              <span>Stream of Grace</span>
+            `;
+            mobileNavHeader.appendChild(mobileLogo);
+            
+            // Add close button
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'close-menu';
+            closeBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+            mobileNavHeader.appendChild(closeBtn);
+            
+            mobileNav.appendChild(mobileNavHeader);
+            
+            // Add links
+            const links = Array.from(navLinks.querySelectorAll('a'));
+            links.forEach(link => {
+              const newLink = link.cloneNode(true);
+              mobileNav.appendChild(newLink);
+            });
+            
+            document.body.appendChild(mobileNav);
+            
+            // Add event listeners
+            closeBtn.addEventListener('click', function() {
+              mobileNav.classList.remove('active');
+              overlay.classList.remove('active');
+              setTimeout(() => {
+                document.body.removeChild(mobileNav);
+                document.body.removeChild(overlay);
+              }, 300);
+            });
+            
+            overlay.addEventListener('click', function() {
+              mobileNav.classList.remove('active');
+              overlay.classList.remove('active');
+              setTimeout(() => {
+                document.body.removeChild(mobileNav);
+                document.body.removeChild(overlay);
+              }, 300);
+            });
+            
+            // Show menu with animation
+            setTimeout(() => {
+              mobileNav.classList.add('active');
+              overlay.classList.add('active');
+            }, 10);
+          }
+        });
+      }
+      
+      // Form submission
+      const contactForm = document.getElementById('contactForm');
+      const successMessage = document.getElementById('successMessage');
+      
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Simulate form submission
+          setTimeout(() => {
+            contactForm.style.display = 'none';
+            successMessage.classList.add('show');
+            
+            // Reset form after delay
+            setTimeout(() => {
+              contactForm.reset();
+              contactForm.style.display = 'block';
+              successMessage.classList.remove('show');
+            }, 5000);
+          }, 1000);
+        });
+      }
+      
+      // Accordion functionality
+      const accordionItems = document.querySelectorAll('.accordion-item');
+      
+      accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        const content = item.querySelector('.accordion-content');
+        
+        header.addEventListener('click', () => {
+          // Close all other accordion items
+          accordionItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+              otherItem.querySelector('.accordion-content').style.maxHeight = null;
+            }
+          });
+          
+          // Toggle current accordion item
+          item.classList.toggle('active');
+          
+          if (item.classList.contains('active')) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+          } else {
+            content.style.maxHeight = null;
+          }
+        });
+      });
+      
+      // Animation on scroll
+      const observeElements = () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+            }
+          });
+        }, { threshold: 0.2 });
+        
+        // Observe elements with animation classes
+        document.querySelectorAll('.contact-info, .contact-form-container').forEach(el => {
+          observer.observe(el);
+        });
+      };
+      
+      // Call the observe function
+      observeElements();
+    });
+  </script>
+</body>
+</html>
