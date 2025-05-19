@@ -1,0 +1,2890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stream of Grace Chapel Int'l</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: white;
+      background-color: #000;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Navigation styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 0.75rem 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInDown 0.8s forwards 0.2s;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .logo a {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: none;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInDown 0.8s forwards 0.4s;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #F7A91A; /* Gold color */
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: #F7A91A; /* Gold color */
+    }
+
+    /* Updated hamburger menu toggle style */
+    .menu-toggle {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    /* Hero section styles */
+    .hero-section {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Video background */
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      z-index: 1;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 2;
+    }
+
+    /* Hero content */
+    .hero-content {
+      position: relative;
+      z-index: 20;
+      padding: 0 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .hero-text {
+      max-width: 600px;
+      opacity: 0;
+      transform: translateX(-30px);
+      animation: fadeInLeft 0.8s forwards 0.6s;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      color: #F7A91A; /* Gold color for Stream of Grace */
+    }
+
+    .hero-title span {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-style: italic;
+      color: white;
+      position: relative;
+      font-size: 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    /* Unified button style for all buttons */
+    .btn {
+      padding: 0.9rem 2.2rem;
+      background-color: transparent;
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: 2px solid #F7A91A; /* Gold color */
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: #F7A91A; /* Gold color */
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+
+    .btn:hover {
+      color: #000;
+    }
+
+    .btn:hover:before {
+      width: 100%;
+    }
+
+    .btn svg {
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover svg {
+      transform: translateX(5px);
+    }
+
+    .btn-filled {
+      background: linear-gradient(135deg, #F7A91A, #FFD700);
+      color: #333;
+      border: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-filled:before {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-filled:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .cta-button {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards 0.8s;
+    }
+
+    /* About Us Section */
+    .about-section {
+      background-color: white;
+      color: #333;
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      margin-top: -60px;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .about-header.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .about-header h2 {
+      font-size: 2.2rem;
+      color: #333;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .about-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #F7A91A;
+    }
+
+    .about-header p {
+      font-size: 1rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* About content with images and description side by side */
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .about-content.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Circular image highlights */
+    .image-highlights {
+      flex: 1;
+    }
+
+    .circle-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      position: relative;
+    }
+
+    .circle-row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      width: 100%;
+    }
+
+    .circle-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 4px solid #F7A91A;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .middle-image {
+      transform: translateY(-30px);
+    }
+
+    .circle-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .circle-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(247, 169, 26, 0.3);
+      z-index: 10;
+    }
+
+    .circle-image:hover img {
+      transform: scale(1.1);
+    }
+
+    .image-title {
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      background: rgba(247, 169, 26, 0.9);
+      color: white;
+      padding: 5px 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 0 0 10px 10px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    .circle-image:hover .image-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Church description card */
+    .church-description {
+      flex: 1;
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .church-description::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: #F7A91A;
+    }
+
+    .church-description h3 {
+      font-size: 1.6rem;
+      color: #333;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .church-description h3::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: #F7A91A;
+    }
+
+    .church-description p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    /* Our Mission Section - REDUCED HEIGHT */
+    .mission-section {
+      background: linear-gradient(135deg, #FFF8E1, #FFF0C9);
+      padding: 1rem 1rem;
+      color: #333;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mission-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mission-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .mission-header.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mission-header h2 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .mission-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: #F7A91A;
+    }
+
+    .mission-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      
+    }
+
+    .mission-text-container {
+      max-width: 700px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .mission-text-container.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mission-text {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    .mission-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #D4A017, #C7940A);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 20px rgba(212, 160, 23, 0.3);
+    }
+
+    .mission-icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: white;
+      fill: none;
+    }
+
+    .mission-title {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    /* Pastor image container - UPDATED to be extremely large */
+    .pastor-image-container {
+      position: relative;
+      width: 100%;
+      max-width: 850px; /* Increased base size */
+      margin-top:-108px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .pastor-image-container.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Using the circular image directly */
+    .pastor-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+      border-radius: 50%;
+    }
+
+    /* Location & Service Info Panel */
+    .info-section {
+      padding: 5rem 2rem;
+      background-color: white;
+    }
+
+    .info-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .info-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .info-header.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .info-header h2 {
+      font-size: 2.2rem;
+      color: #333;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .info-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #F7A91A;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      justify-items: center;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(20px);
+      max-width: 500px;
+      width: 100%;
+      transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+    }
+
+    .info-card.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+
+    .info-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(247, 169, 26, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover .info-icon {
+      background: rgba(247, 169, 26, 0.2);
+      transform: scale(1.1);
+    }
+
+    .info-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: #F7A91A;
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover .info-icon svg {
+      stroke: #F7A91A;
+      transform: scale(1.1);
+    }
+
+    .info-content h3 {
+      font-size: 1.3rem;
+      color: #333;
+      margin-bottom: 0.8rem;
+    }
+
+    .info-content p, .info-content li {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .service-list {
+      list-style: none;
+      margin-top: 0.8rem;
+    }
+
+    .service-list li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .service-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      width: 8px;
+      height: 8px;
+      background: #F7A91A;
+      border-radius: 50%;
+    }
+
+    .service-name {
+      font-weight: 600;
+      margin-right: 0.5rem;
+      min-width: 150px;
+    }
+
+    /* Programs and Services Section Styles - FIXED HEADING SIZE */
+    .programs-section {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      padding: 5rem 2rem;
+      color: #333;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .programs-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .programs-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .programs-header.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .programs-header h2 {
+      font-size: 2.2rem; /* Standardized heading size */
+      color: #333;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .programs-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #F7A91A;
+    }
+
+    .programs-header p {
+      font-size: 1rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Featured Video Section */
+    .featured-video-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 4rem;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+    }
+
+    .featured-video-container.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .featured-video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+    }
+
+    .featured-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .featured-video-content {
+      padding: 2rem;
+    }
+
+    .video-tag {
+      display: inline-block;
+      background: #F7A91A;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .featured-video-content h3 {
+      font-size: 1.4rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .featured-video-content p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .video-meta {
+      display: flex;
+      gap: 1.5rem;
+      color: #888;
+      font-size: 0.85rem;
+    }
+
+    .video-date, .video-duration {
+      display: flex;
+      align-items: center;
+    }
+
+    .video-date::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='16' y1='2' x2='16' y2='6'%3E%3C/line%3E%3Cline x1='8' y1='2' x2='8' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='10' x2='21' y2='10'%3E%3C/line%3E%3C/svg%3E");
+      background-size: contain;
+      margin-right: 0.5rem;
+    }
+
+    .video-duration::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpolyline points='12 6 12 12 16 14'%3E%3C/polyline%3E%3C/svg%3E");
+      background-size: contain;
+      margin-right: 0.5rem;
+    }
+
+    /* Video Gallery */
+    .video-gallery {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .video-item {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+    }
+
+    .video-item.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .video-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-thumbnail-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+    }
+
+    .video-thumbnail {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .video-item:hover .video-thumbnail {
+      transform: scale(1.05);
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(247, 169, 26, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      opacity: 0.9;
+      transition: all 0.3s ease;
+    }
+
+    .play-button svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+      margin-left: 4px;
+    }
+
+    .video-item:hover .play-button {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.1);
+      background: rgba(247, 169, 26, 1);
+    }
+
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .video-info {
+      padding: 1.5rem;
+    }
+
+    .video-info h4 {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 0.8rem;
+    }
+
+    .video-info p {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* View All Button */
+    .view-all-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    .pulse-indicator {
+      position: absolute;
+      top: 0;
+      right: calc(50% - 100px);
+      width: 10px;
+      height: 10px;
+      background-color: #ff0000;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    /* Social Media Carousel Section */
+    .social-carousel {
+      position: relative;
+      height: 500px;
+      width: 100%;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .social-carousel.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .social-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease, transform 1s ease;
+      transform: translateX(100%);
+    }
+
+    .social-slide.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .social-slide.prev {
+      transform: translateX(-100%);
+    }
+
+    .social-slide::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+    }
+
+    .social-slide:nth-child(1)::before {
+      background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB_IMG_1744618681270.jpg-fkGRrFUogpRgUD9FPWiTokYiSdKp5G.jpeg');
+    }
+
+    .social-slide:nth-child(2)::before {
+      background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB_IMG_1744618744442.jpg-lqJejxkhG28ndE4lvcLepTJUCmpwoK.jpeg');
+    }
+
+    .social-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 2;
+    }
+
+    .social-content {
+      position: relative;
+      z-index: 3;
+      max-width: 1200px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .social-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #F7A91A; /* Gold color */
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+    }
+
+    .social-slide.active .social-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .social-subtitle {
+      font-size: 1.1rem;
+      color: white;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+    }
+
+    .social-slide.active .social-subtitle {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Social Media Icons */
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease 0.7s, transform 0.8s ease 0.7s;
+    }
+
+    .social-slide.active .social-links {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .social-link {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: #F7A91A; /* Gold background */
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(247, 169, 26, 0.4);
+    }
+
+    .social-link svg {
+      width: 22px;
+      height: 22px;
+      stroke: #333;
+      fill: #333;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .social-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .social-link:hover::before {
+      transform: translateY(0);
+    }
+
+    /* Carousel navigation */
+    .carousel-nav {
+      position: absolute;
+      bottom: 2rem;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      z-index: 10;
+    }
+
+    .carousel-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-dot.active {
+      background: #F7A91A;
+      transform: scale(1.2);
+    }
+
+    .carousel-arrows {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 2rem;
+      z-index: 10;
+    }
+
+    .carousel-arrow {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-arrow:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-arrow svg {
+      width: 24px;
+      height: 24px;
+      stroke: white;
+    }
+
+    /* Contact Form Section - FIXED HEADING SIZE */
+    .contact-section {
+      background-color: #f9f9f9;
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(247, 169, 26, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(247, 169, 26, 0.05) 0%, transparent 40%);
+      z-index: 1;
+    }
+
+    .contact-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .contact-header.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .contact-header h2 {
+      font-size: 2.2rem; /* Standardized heading size */
+      color: #333;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #F7A91A;
+    }
+
+    .contact-underline {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, #F7A91A, rgba(247, 169, 26, 0.3));
+      margin: 0 auto 1.5rem;
+      display: none; /* Hide this since we're using the ::after pseudo-element */
+    }
+
+    .contact-header p {
+      font-size: 1rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .contact-content {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .contact-info {
+      background: linear-gradient(135deg, #F9D29D, #F7A91A);
+      border-radius: 12px;
+      padding: 2.5rem;
+      color: #333;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .contact-info.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+
+    .contact-icon {
+      width: 45px;
+      height: 45px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: #333;
+    }
+
+    .contact-text h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-text p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Social Media Icons in Contact Section */
+    .contact-info .social-link {
+      background: rgba(255, 255, 255, 0.2);
+      width: 40px;
+      height: 40px;
+    }
+
+    .contact-info .social-link svg {
+      width: 20px;
+      height: 20px;
+      stroke: #333;
+      fill: #333;
+    }
+
+    .contact-info .social-link:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Hover animation */
+    .social-link:hover {
+      transform: translateY(-3px);
+    }
+
+    .contact-form {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .contact-form.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .form-group {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .input-group input,
+    .input-group textarea {
+      width: 100%;
+      padding: 0.75rem 0;
+      font-size: 0.95rem;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      background: transparent;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    .input-group label {
+      position: absolute;
+      top: 0.75rem;
+      left: 0;
+      font-size: 0.95rem;
+      color: #999;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .input-group input:focus,
+    .input-group textarea:focus,
+    .input-group input:valid,
+    .input-group textarea:valid {
+      outline: none;
+      border-color: #F7A91A;
+    }
+
+    .input-group input:focus ~ label,
+    .input-group textarea:focus ~ label,
+    .input-group input:valid ~ label,
+    .input-group textarea:valid ~ label {
+      top: -20px;
+      font-size: 0.85rem;
+      color: #F7A91A;
+    }
+
+    .input-highlight {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: #F7A91A;
+      transition: all 0.3s ease;
+    }
+
+    .input-group input:focus ~ .input-highlight,
+    .input-group textarea:focus ~ .input-highlight {
+      width: 100%;
+    }
+
+    .submit-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 0.9rem 2rem;
+      background: linear-gradient(135deg, #F9D29D, #F7A91A);
+      color: #333;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 1rem;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .submit-button:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+
+    .submit-button:hover:before {
+      width: 100%;
+    }
+
+    .submit-button svg {
+      stroke: #333;
+      transition: all 0.3s ease;
+    }
+
+    .submit-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .submit-button:hover svg {
+      transform: translateX(5px);
+    }
+
+    /* Footer Styles */
+    .footer {
+      background-color: #222;
+      color: white;
+      padding: 4rem 2rem 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .footer.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-logo img {
+      height: 45px;
+    }
+
+    .footer-logo h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .footer-column h4 {
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-column h4::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: #F7A91A;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-column ul li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .footer-column ul li a:hover {
+      color: #F7A91A;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Animation classes for scroll effects */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-up.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .fade-in.animate {
+      opacity: 1;
+    }
+
+    .slide-left {
+      opacity: 0;
+      transform: translateX(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-left.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-right {
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-right.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Pulse animation for live indicator */
+    .live-indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: #ff0000;
+      border-radius: 50%;
+      margin-right: 8px;
+      animation: pulse 1.5s infinite;
+    }
+
+    /* Email overlay and modal styles */
+    .email-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .email-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 5px solid rgba(247, 169, 26, 0.3);
+      border-radius: 50%;
+      border-top-color: #F7A91A;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .email-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      z-index: 1001;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      opacity: 1;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .email-modal.hidden {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+      pointer-events: none;
+    }
+
+    .modal-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(247, 169, 26, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+
+    .modal-icon svg {
+      width: 40px;
+      height: 40px;
+      stroke: #F7A91A;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .modal-message {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .modal-close {
+      padding: 0.8rem 2rem;
+      background: linear-gradient(135deg, #F9D29D, #F7A91A);
+      color: #333;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-close:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInLeft {
+      0% { opacity: 0; transform: translateX(-30px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background: white;
+      z-index: 1000;
+      padding: 2rem;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .mobile-nav.active {
+      right: 0;
+    }
+
+    .mobile-nav-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .mobile-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .mobile-logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .mobile-logo span {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .close-menu {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: #333;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .close-menu:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .mobile-nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 1rem 0;
+      font-size: 1rem;
+      border-bottom: 1px solid #eee;
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    .mobile-nav a:hover {
+      color: #F7A91A;
+      padding-left: 0.5rem;
+    }
+
+    .mobile-nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Enhanced responsive styles */
+    @media (max-width: 767px) {
+      .hero-content {
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-text {
+        max-width: 100%;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .hero-title span {
+        font-size: 1.6rem;
+      }
+
+      .circle-row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .middle-image {
+        transform: translateY(0);
+        margin: 2rem 0;
+      }
+
+      .mission-content {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .mission-text-container {
+        order: 1; /* This puts the text at the top */
+      }
+      
+      .pastor-image-container {
+        order: 2; /* This puts the image at the bottom */
+        margin-top: 2rem; /* Add some space between text and image */
+        max-width: 100%; /* Keep image full width on mobile */
+      }
+
+      /* Pastor image container size for mobile */
+      .pastor-image-container {
+        max-width: 100%;
+        height:100%;
+      }
+      
+      /* Improve responsiveness of Location and Service Time sections on mobile */
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .info-card {
+        padding: 1.5rem;
+      }
+      
+      .info-icon {
+        width: 45px;
+        height: 45px;
+        margin-right: 1rem;
+      }
+      
+      .info-content h3 {
+        font-size: 1.2rem;
+      }
+      
+      .info-content p, .info-content li {
+        font-size: 0.9rem;
+      }
+      
+      .service-list li {
+        margin-bottom: 0.6rem;
+      }
+
+      .service-name {
+        min-width: 100px;
+      }
+      
+      .social-title {
+        font-size: 1.8rem;
+      }
+      
+      .social-subtitle {
+        font-size: 1rem;
+      }
+      
+      .form-group {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      
+      .hero-title span {
+        font-size: 1.4rem;
+      }
+      
+      .hero-description {
+        font-size: 0.9rem;
+      }
+      
+      .btn {
+        padding: 0.8rem 1.8rem;
+        font-size: 0.9rem;
+      }
+      
+      .about-header h2,
+      .mission-header h2,
+      .info-header h2,
+      .programs-header h2,
+      .contact-header h2 {
+        font-size: 1.8rem; /* Consistent heading size for mobile */
+      }
+      
+      .circle-image {
+        width: 160px;
+        height: 160px;
+      }
+      
+      /* Pastor image container size for small mobile */
+      .pastor-image-container {
+        width: 100%;
+        height:auto;
+        padding: 0;
+        margin-top: 0; /* Reset margin */
+      }
+      
+      .social-links {
+        gap: 1rem;
+      }
+      
+      .social-link {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .social-link svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+      
+      .menu-toggle {
+        display: none;
+      }
+      
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .logo img {
+        height: 45px;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+      }
+      
+      .contact-content {
+        flex-direction: row;
+      }
+      
+      .contact-info {
+        flex: 1;
+      }
+      
+      .contact-form {
+        flex: 2;
+      }
+      
+      .footer-links {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      
+      .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      
+      .footer-logo {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .about-content {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .image-highlights {
+        flex: 1;
+      }
+
+      .church-description {
+        flex: 1;
+        margin-left: 2rem;
+      }
+
+      .circle-row {
+        flex-direction: row;
+      }
+
+      .mission-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+
+      .info-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      /* Pastor image container size for tablet/desktop */
+      .pastor-image-container {
+        max-width: 800px;
+      }
+      
+      /* Video gallery responsive layout */
+      .video-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .featured-video-container {
+        flex-direction: row;
+        align-items: stretch;
+      }
+      
+      .featured-video-wrapper {
+        flex: 3;
+        padding-top: 0;
+      }
+      
+      .featured-video-content {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-size: 3.5rem;
+      }
+
+      .hero-title span {
+        font-size: 2.5rem;
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        font-size: 1rem;
+        padding: 1rem 2.5rem;
+      }
+      
+      /* Pastor image container size for large desktop */
+      .pastor-image-container {
+        max-width: 800px;
+      }
+      
+      /* Video gallery responsive layout */
+      .video-gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .featured-video-wrapper {
+        flex: 2;
+      }
+      
+      .featured-video-content {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20250404-021620~2-WDuAUGmgBDlCFXIien2qChM03KUl9t.png" alt="Stream of Grace Logo">
+      <a href="/">Stream of Grace Chapel Int'l</a>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs & Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section with Video Background -->
+  <div class="hero-section">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pst-peggy-web-home-page_PYu2liJw~2-5gp70oFm81q4Wa0ivGhzMrEXmD2ADd.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+    
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Stream of Grace
+          <span>"The Power of the Gospel"</span>
+        </h1>
+        <p class="hero-description">
+          Experience the transformative power of God's word in a community filled with love, faith, and the Holy Spirit.
+        </p>
+        <a href="https://vm.tiktok.com/ZMB7va1ax/"> 
+          <button class="btn cta-button">
+            <span class="live-indicator"></span>Watch Our Service
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Us Section - Redesigned with white background and circular images -->
+  <section class="about-section" id="about">
+    <div class="about-container">
+      <div class="about-header fade-up">
+        <h2>About Us</h2>
+        <p>Get to know our vibrant community of believers dedicated to experiencing the presence of God.</p>
+      </div>
+      
+      <!-- About content with images and description side by side -->
+      <div class="about-content fade-up">
+        <!-- Circular Image Highlights - redesigned to not overlap -->
+        <div class="image-highlights">
+          <div class="circle-container">
+            <div class="circle-image middle-image">
+              <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB_IMG_1744618681270.jpg-fkGRrFUogpRgUD9FPWiTokYiSdKp5G.jpeg" alt="Church congregation">
+              <div class="image-title">Worship Moments</div>
+            </div>
+            <div class="circle-row">
+              <div class="circle-image">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB_IMG_1744618744442.jpg-lqJejxkhG28ndE4lvcLepTJUCmpwoK.jpeg" alt="Worship team">
+                <div class="image-title">Our Community</div>
+              </div>
+              <div class="circle-image">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB_IMG_1744618674366.jpg-GglATTIEAFB5urhhj3cj9Vw9Urntl6.jpeg" alt="Speaker at podium">
+                <div class="image-title">Serving Others</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Church description card -->
+        <div class="church-description">
+          <h3>Our Church</h3>
+          <p>Located in Mallam (near Socca Bet) Accra, Ghana, Stream of Grace Chapel International is a vibrant and dynamic Christian community dedicated to spreading the message of God's love and redemption. We welcome everyone to join us in worship and fellowship as we grow together in faith.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Mission Section - Enhanced with light gold gradient -->
+  <section class="mission-section" id="mission">
+    <div class="mission-container">
+      <div class="mission-header fade-up">
+        <h2>Discover Our Purpose</h2>
+      </div>
+      
+      <div class="mission-content">
+        <div class="mission-text-container fade-up">
+          <!-- Replace the mission icon with a flame icon -->
+          <div class="mission-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+          </div>
+          <h3 class="mission-title">Our Mission</h3>
+          <div class="mission-text">
+            <p>Founded on the principles of faith, hope and charity, our church seeks to provide a spiritual haven for individuals and families from all walks of life. Under the visionary leadership of Pastor Peggy Lipton, we strive to empower believers to live victorious lives, built on the solid foundation of God's Word.</p>
+          </div>
+          <a href="about.html" class="btn btn-filled">
+            Learn More About Pastor Peggy
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+        </div>
+        
+        <!-- Pastor Peggy's Image - Updated with the circular image with gold background -->
+        <div class="pastor-image-container fade-up">
+          <img src="https://rztgg9jpu58dsvst.public.blob.vercel-storage.com/20250515_071503-Ex0XS5BovQAGtoMcEJMIX1PByYbMs5.png" alt="Pastor Peggy" class="pastor-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Service Info Panel - Enhanced UI and Centered -->
+  <section class="info-section" id="location">
+    <div class="info-container">
+      <div class="info-header fade-up">
+        <h2>Location and Services</h2>
+      </div>
+      
+      <div class="info-grid">
+        <!-- Location Card -->
+        <div class="info-card fade-up">
+          <div class="info-item">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div class="info-content">
+              <h3>Our Location</h3>
+              <p>Unicorn Tabernacle, Mallam<br>Near Socca Bet, Ghana</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact Card -->
+        <div class="info-card fade-up">
+          <div class="info-item">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div class="info-content">
+              <h3>Contact Us</h3>
+              <p>(+233) 0558146003</p>
+              <p>info@streamofgrace.org</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Service Times Card -->
+        <div class="info-card fade-up">
+          <div class="info-item">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div class="info-content">
+              <h3>Service Times</h3>
+              <ul class="service-list">
+                <li><span class="service-name">BOOTCAMP SERVICE:</span> Every Sunday (8:30- 10:30am)</li>
+                <li><span class="service-name">Rhema Service:</span> Every Thursday (5:30-7:30am)</li>
+                <li><span class="service-name">Prayer Chain:</span> Every First Saturday Of Every Month</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs and Services Section -->
+  <section class="programs-section" id="programs">
+    <div class="programs-container">
+      <div class="programs-header fade-up">
+        <h2>Programs and Events</h2>
+        <p>Experience the power of worship and the Word through our various programs and services</p>
+      </div>
+      
+      <!-- Featured Video Section -->
+      <div class="featured-video-container fade-up">
+        <div class="featured-video-wrapper">
+          <iframe 
+            src="https://www.youtube.com/embed/LaeaJwxmu3E?si=AmCEbFQpYGZHpdP6" 
+            title="Featured Sermon" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            loading="lazy"
+            class="featured-video">
+          </iframe>
+        </div>
+        <div class="featured-video-content">
+          <div class="video-tag">Featured Sermon</div>
+          <h3>GOD IS ABLE</h3>
+          <p>Pastor Peggy shares a powerful message about God's ability to do exceedingly abundantly above all we can ask or think. Learn how to trust in God's unlimited power in every situation.</p>
+          <div class="video-meta">
+            <span class="video-date">April 14, 2025</span>
+            <span class="video-duration">45 minutes</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Video Gallery -->
+      <div class="video-gallery">
+        <div class="video-item fade-up">
+          <div class="video-thumbnail-container">
+            <img src="https://img.youtube.com/vi/7lsXK8-BZaA/maxresdefault.jpg" alt="Sermon Thumbnail" class="video-thumbnail">
+            <div class="play-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5v14l11-7z"></path></svg>
+            </div>
+            <div class="video-overlay" data-video-id="7lsXK8-BZaA"></div>
+          </div>
+          <div class="video-info">
+            <h4>STREAM OF GRACE CHAPEL INTERNATIONAL</h4>
+            <p>Join us for a special service celebrating our church community and the work God is doing through us.</p>
+          </div>
+        </div>
+        
+        <div class="video-item fade-up">
+          <div class="video-thumbnail-container">
+            <img src="https://img.youtube.com/vi/3pRPwEQZkWw/maxresdefault.jpg" alt="Sermon Thumbnail" class="video-thumbnail">
+            <div class="play-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5v14l11-7z"></path></svg>
+            </div>
+            <div class="video-overlay" data-video-id="3pRPwEQZkWw"></div>
+          </div>
+          <div class="video-info">
+            <h4>WORD OF THE DAY BY PASTOR PEGGY LIPTON- WISDOM</h4>
+            <p>Pastor Peggy shares divine wisdom from God's Word to help you navigate life's challenges with heavenly insight.</p>
+          </div>
+        </div>
+        
+        <div class="video-item fade-up">
+          <div class="video-thumbnail-container">
+            <img src="https://img.youtube.com/vi/db6SLozQ8Xo/maxresdefault.jpg" alt="Sermon Thumbnail" class="video-thumbnail">
+            <div class="play-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5v14l11-7z"></path></svg>
+            </div>
+            <div class="video-overlay" data-video-id="db6SLozQ8Xo"></div>
+          </div>
+          <div class="video-info">
+            <h4>COMMUNION SERVICE</h4>
+            <p>Experience the power of communion as we remember Christ's sacrifice and receive healing, restoration, and renewal.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- View All Programs Button -->
+      <div class="view-all-container">
+        <a href="programs.html" class="btn btn-filled">
+          <span>See More Programs & Events</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
+        <div class="pulse-indicator"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Carousel Section -->
+  <section class="social-carousel fade-up" id="social">
+    <div class="social-slide active">
+      <div class="social-overlay"></div>
+      <div class="social-content">
+        <h2 class="social-title">Connect With Us</h2>
+        <p class="social-subtitle">Follow Stream of Grace on social media to stay updated with our latest events, sermons, and community activities.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/pplipton" class="social-link" title="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02Z"></path></svg>
+          </a>
+          <a href="https://www.instagram.com/sgci11?igsh=MzRlODBiNWFlZA==" class="social-link" title="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3Z"></path></svg>
+          </a>
+          <a href="https://youtube.com/@porchchroniclespod?si=J3Hp0c731-0iEjUI" class="social-link" title="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73Z"></path></svg>
+          </a>
+          <a href="https://vm.tiktok.com/ZMB7va1ax/" class="social-link" title="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.59-1.16-2.59-2.5 0-1.4 1.16-2.5 2.59-2.5.27 0 .53.04.77.13v-3.13c-.31-.05-.62-.1-.93-.1-2.38 0-4.3 1.91-4.3 4.3 0 2.38 1.92 4.3 4.3 4.3 2.38 0 4.3-1.92 4.3-4.3V7.04c.93.85 2.16 1.31 3.45 1.31v-3.1c-.66.06-1.42-.4-.89.57z"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="social-slide">
+      <div class="social-overlay"></div>
+      <div class="social-content">
+        <h2 class="social-title">Watch Our Videos</h2>
+        <p class="social-subtitle">Subscribe to our channels for inspiring sermons, worship sessions, and special events.</p>
+        <div class="social-links">
+          <a href="https://youtube.com/@porchchroniclespod?si=J3Hp0c731-0iEjUI" class="social-link" title="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73Z"></path></svg>
+          </a>
+          <a href="https://vm.tiktok.com/ZMB7va1ax/" class="social-link" title="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.59-1.16-2.59-2.5 0-1.4 1.16-2.5 2.59-2.5.27 0 .53.04.77.13v-3.13c-.31-.05-.62-.1-.93-.1-2.38 0-4.3 1.91-4.3 4.3 0 2.38 1.92 4.3 4.3 4.3 2.38 0 4.3-1.92 4.3-4.3V7.04c.93.85 2.16 1.31 3.45 1.31v-3.1c-.66.06-1.42-.4-.89.57z"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="carousel-arrows">
+      <div class="carousel-arrow prev-arrow" id="prevSlide">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </div>
+      <div class="carousel-arrow next-arrow" id="nextSlide">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </div>
+    </div>
+    
+    <div class="carousel-nav">
+      <div class="carousel-dot active" data-slide="0"></div>
+      <div class="carousel-dot" data-slide="1"></div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section - FIXED HEADING SIZE -->
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+      <div class="contact-header fade-up">
+        <h2>Send Us a Message</h2>
+        <div class="contact-underline"></div>
+        <p>We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
+      </div>
+      
+      <div class="contact-content">
+        <div class="contact-info fade-up">
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div class="contact-text">
+              <h3>Phone</h3>
+              <p>(+233) 0558146003</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div class="contact-text">
+              <h3>Email</h3>
+              <p>info@streamofgrace.org</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div class="contact-text">
+              <h3>Address</h3>
+              <p>Unicorn Tabernacle, Mallam<br>Near Socca Bet, Ghana</p>
+            </div>
+          </div>
+          
+          <div class="social-links">
+            <a href="https://www.facebook.com/pplipton" class="social-link" title="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02Z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/sgci11?igsh=MzRlODBiNWFlZA==" class="social-link" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3Z"></path></svg>
+            </a>
+            <a href="https://youtube.com/@porchchroniclespod?si=J3Hp0c731-0iEjUI" class="social-link" title="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73Z"></path></svg>
+            </a>
+            <a href="https://vm.tiktok.com/ZMB7va1ax/" class="social-link" title="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.59-1.16-2.59-2.5 0-1.4 1.16-2.5 2.59-2.5.27 0 .53.04.77.13v-3.13c-.31-.05-.62-.1-.93-.1-2.38 0-4.3 1.91-4.3 4.3 0 2.38 1.92 4.3 4.3 4.3 2.38 0 4.3-1.92 4.3-4.3V7.04c.93.85 2.16 1.31 3.45 1.31v-3.1c-.66.06-1.42-.4-.89.57z"></path></svg>
+            </a>
+          </div>
+        </div>
+        
+        <form class="contact-form fade-up" id="contact-form">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" id="name" name="name" required>
+              <label for="name">Your Name</label>
+              <div class="input-highlight"></div>
+            </div>
+            
+            <div class="input-group">
+              <input type="email" id="email" name="email" required>
+              <label for="email">Your Email</label>
+              <div class="input-highlight"></div>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <input type="text" id="subject" name="subject" required>
+            <label for="subject">Subject</label>
+            <div class="input-highlight"></div>
+          </div>
+          
+          <div class="input-group">
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <label for="message">Your Message</label>
+            <div class="input-highlight"></div>
+          </div>
+          
+          <button type="submit" class="submit-button">
+            <span>Send Message</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Overlay and Modal -->
+  <div class="email-overlay hidden" id="email-overlay">
+    <div class="spinner"></div>
+  </div>
+  
+  <div class="email-modal hidden" id="email-modal">
+    <div class="modal-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+    </div>
+    <h3 class="modal-title" id="modal-title">Success!</h3>
+    <p class="modal-message" id="modal-message">Your message has been sent successfully.</p>
+    <button class="modal-close" id="modal-close">Close</button>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer fade-up">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20250404-021620~2-WDuAUGmgBDlCFXIien2qChM03KUl9t.png" alt="Stream of Grace Logo">
+        <h3>Stream of Grace Chapel Int'l</h3>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html">Our Programs and Events</a></li>
+            <li><a href="location.html">Location and Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="https://www.facebook.com/pplipton">Facebook</a></li>
+            <li><a href="https://www.instagram.com/sgci11?igsh=MzRlODBiNWFlZA==">Instagram</a></li>
+            <li><a href="https://vm.tiktok.com/ZMB7va1ax/">TikTok</a></li>
+            <li><a href="https://youtube.com/@porchchroniclespod?si=J3Hp0c731-0iEjUI">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Stream of Grace Chapel Int'l. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Navbar scroll effect
+      const navbar = document.getElementById('navbar');
+      
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+      
+      // Mobile menu toggle functionality
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+          // Create mobile menu if it doesn't exist
+          if (!document.querySelector('.mobile-nav')) {
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'mobile-nav-overlay';
+            document.body.appendChild(overlay);
+            
+            // Create mobile nav
+            const mobileNav = document.createElement('div');
+            mobileNav.className = 'mobile-nav';
+            
+            // Create mobile nav header
+            const mobileNavHeader = document.createElement('div');
+            mobileNavHeader.className = 'mobile-nav-header';
+            
+            // Add logo to mobile nav
+            const mobileLogo = document.createElement('div');
+            mobileLogo.className = 'mobile-logo';
+            mobileLogo.innerHTML = `
+              <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20250404-021620~2-WDuAUGmgBDlCFXIien2qChM03KUl9t.png" alt="Stream of Grace Logo">
+              <span>Stream of Grace</span>
+            `;
+            mobileNavHeader.appendChild(mobileLogo);
+            
+            // Add close button
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'close-menu';
+            closeBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+            mobileNavHeader.appendChild(closeBtn);
+            
+            mobileNav.appendChild(mobileNavHeader);
+            
+            // Add links
+            const links = Array.from(navLinks.querySelectorAll('a'));
+            links.forEach(link => {
+              const newLink = link.cloneNode(true);
+              mobileNav.appendChild(newLink);
+            });
+            
+            document.body.appendChild(mobileNav);
+            
+            // Add event listeners
+            closeBtn.addEventListener('click', function() {
+              mobileNav.classList.remove('active');
+              overlay.classList.remove('active');
+              setTimeout(() => {
+                document.body.removeChild(mobileNav);
+                document.body.removeChild(overlay);
+              }, 300);
+            });
+            
+            overlay.addEventListener('click', function() {
+              mobileNav.classList.remove('active');
+              overlay.classList.remove('active');
+              setTimeout(() => {
+                document.body.removeChild(mobileNav);
+                document.body.removeChild(overlay);
+              }, 300);
+            });
+            
+            // Show menu with animation
+            setTimeout(() => {
+              mobileNav.classList.add('active');
+              overlay.classList.add('active');
+            }, 10);
+          }
+        });
+      }
+      
+      // Social Media Carousel
+      const slides = document.querySelectorAll('.social-slide');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const prevBtn = document.getElementById('prevSlide');
+      const nextBtn = document.getElementById('nextSlide');
+      let currentSlide = 0;
+      
+      function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentSlide = index;
+      }
+      
+      // Dot navigation
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          showSlide(index);
+        });
+      });
+      
+      // Arrow navigation
+      prevBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+      });
+      
+      nextBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      });
+      
+      // Auto slide
+      setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      }, 5000);
+      
+      // Enhanced scroll animation for elements
+      const observeElements = () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+            }
+          });
+        }, { threshold: 0.1 });
+        
+        // Observe elements with animation classes
+        document.querySelectorAll('.fade-up, .fade-in, .slide-left, .slide-right, .about-header, .about-content, .mission-header, .mission-text-container, .pastor-image-container, .programs-header, .featured-video-container, .video-item, .info-card, .contact-header, .contact-info, .contact-form, .social-carousel, .footer').forEach(el => {
+          observer.observe(el);
+        });
+      };
+      
+      // Call the observe function
+      observeElements();
+
+      // Programs section - YouTube video click handlers
+      const videoOverlays = document.querySelectorAll('.video-overlay');
+      videoOverlays.forEach(overlay => {
+        overlay.addEventListener('click', function() {
+          const videoId = this.getAttribute('data-video-id');
+          const thumbnailContainer = this.closest('.video-thumbnail-container');
+          
+          // Create iframe
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+          iframe.title = "YouTube video player";
+          iframe.frameBorder = "0";
+          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+          iframe.allowFullscreen = true;
+          iframe.style.position = "absolute";
+          iframe.style.top = "0";
+          iframe.style.left = "0";
+          iframe.style.width = "100%";
+          iframe.style.height = "100%";
+          
+          // Remove thumbnail and play button
+          const thumbnail = thumbnailContainer.querySelector('.video-thumbnail');
+          const playButton = thumbnailContainer.querySelector('.play-button');
+          
+          if (thumbnail) thumbnail.remove();
+          if (playButton) playButton.remove();
+          this.remove();
+          
+          // Add iframe
+          thumbnailContainer.appendChild(iframe);
+        });
+      });
+
+      // EmailJS Integration
+      const overlay = document.getElementById('email-overlay');
+      const modal = document.getElementById('email-modal');
+      const title = document.getElementById('modal-title');
+      const msg = document.getElementById('modal-message');
+      const closeBtn = document.getElementById('modal-close');
+      const form = document.getElementById('contact-form');
+
+      // Verify SDK loaded
+      if (typeof emailjs === 'undefined') {
+        console.error('EmailJS SDK failed to load!');
+        return;
+      }
+      emailjs.init('uN0LWdt8cjfFI3_8a'); // Public Key
+
+      // Close modal
+      closeBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+      });
+
+      // On form submit
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        overlay.classList.remove('hidden'); // show spinner
+
+        emailjs.sendForm('service_p84jzug', 'template_2ukwhhw', form)
+          .then(() => {
+            overlay.classList.add('hidden');
+            title.textContent = 'Success!';
+            msg.textContent = 'Your message has been sent.';
+            modal.classList.remove('hidden');
+            form.reset();
+          })
+          .catch(err => {
+            overlay.classList.add('hidden');
+            console.error('EmailJS error:', err);
+            title.textContent = 'Error';
+            msg.textContent = 'Something went wrong. Please try again.';
+            modal.classList.remove('hidden');
+          });
+      });
+    });
+  </script>
+</body>
+</html>
