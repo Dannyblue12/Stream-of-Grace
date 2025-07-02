@@ -52,16 +52,21 @@ export default async function handler(req, res) {
     }
 
     // Create transporter
-    const transporter = nodemailer.createTransport({
-      host: "smtp.hostinger.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: emailUser,
-        pass: emailPass,
-      },
-     
-    })
+   const transporter = nodemailer.createTransport({
+  host: "smtp.hostinger.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  },
+  tls: {
+    // Important for Hostinger
+    ciphers: "SSLv3",
+    minVersion: "TLSv1.2"
+  }
+});
+
 
     // Send email
     await transporter.sendMail({
