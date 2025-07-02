@@ -52,7 +52,7 @@ export default async function handler(req, res) {
     }
 
     // Create transporter
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       host: "smtp.hostinger.com",
       port: 587,
       secure: false,
