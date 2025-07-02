@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  
   <style>
     /* Reset and base styles */
     * {
@@ -20,6 +21,7 @@
       color: white;
       background-color: #000;
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
     /* Navigation styles */
@@ -31,7 +33,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.5rem 2rem;
+      padding: 1rem 2rem;
       z-index: 100;
       background: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(10px);
@@ -40,7 +42,7 @@
 
     .navbar.scrolled {
       background: rgba(0, 0, 0, 0.9);
-      padding: 1rem 2rem;
+      padding: 0.75rem 2rem;
     }
 
     .logo {
@@ -57,7 +59,7 @@
     }
 
     .logo a {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       font-weight: bold;
       color: white;
       text-decoration: none;
@@ -76,6 +78,7 @@
       margin-left: 2rem;
       transition: all 0.3s ease;
       position: relative;
+      font-size: 0.95rem;
     }
 
     .nav-links a:after {
@@ -113,7 +116,7 @@
     .menu-toggle span {
       display: block;
       width: 100%;
-      height: 3px;
+      height: 2px;
       background-color: white;
       border-radius: 3px;
       transition: all 0.3s ease;
@@ -137,14 +140,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 30%; /* Position to show speaker's face */
+      object-position: center 30%;
       z-index: 1;
     }
 
     .overlay {
       position: absolute;
       inset: 0;
-      /* Slight dark overlay for the hero section */
       background: rgba(0, 0, 0, 0.4);
       z-index: 2;
     }
@@ -171,7 +173,7 @@
     }
 
     .hero-title {
-      font-size: 3.5rem;
+      font-size: 3rem;
       font-weight: 800;
       line-height: 1.2;
       margin-bottom: 1.5rem;
@@ -183,15 +185,15 @@
       display: block;
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
-      font-style: italic; /* Italic for "The Power of the Gospel" */
-      color: white; /* White color for "The Power of the Gospel" */
+      font-style: italic;
+      color: white;
       position: relative;
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-top: 0.5rem;
     }
 
     .hero-description {
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 1.6;
       margin-bottom: 2rem;
       opacity: 0.9;
@@ -199,10 +201,10 @@
 
     /* Unified button style for all buttons */
     .btn {
-      padding: 1rem 2.5rem;
+      padding: 0.9rem 2.2rem;
       background-color: transparent;
       color: white;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       border: 2px solid #F7A91A; /* Gold color */
       border-radius: 50px;
@@ -272,10 +274,9 @@
     .about-section {
       background-color: white;
       color: #333;
-      padding: 6rem 2rem;
+      padding: 5rem 2rem;
       position: relative;
       overflow: hidden;
-      /* Removed negative margin to add space after hero */
       margin-top: -60px;
     }
 
@@ -298,7 +299,7 @@
     }
 
     .about-header h2 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       color: #333;
       margin-bottom: 1rem;
       position: relative;
@@ -311,13 +312,13 @@
       bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
+      width: 60px;
       height: 3px;
       background: #F7A91A;
     }
 
     .about-header p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #666;
       max-width: 700px;
       margin: 0 auto;
@@ -360,8 +361,8 @@
     }
 
     .circle-image {
-      width: 220px;
-      height: 220px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       border: 4px solid #F7A91A;
       overflow: hidden;
@@ -400,7 +401,7 @@
       background: rgba(247, 169, 26, 0.9);
       color: white;
       padding: 5px 0;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
       border-radius: 0 0 10px 10px;
       opacity: 0;
@@ -435,7 +436,7 @@
     }
 
     .church-description h3 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: #333;
       margin-bottom: 1.5rem;
       position: relative;
@@ -447,18 +448,18 @@
       position: absolute;
       bottom: -10px;
       left: 0;
-      width: 60px;
+      width: 50px;
       height: 3px;
       background: #F7A91A;
     }
 
     .church-description p {
-      font-size: 1.2rem;
-      line-height: 1.8;
+      font-size: 1rem;
+      line-height: 1.7;
       color: #555;
     }
 
-    /* Our Mission Section */
+    /* Our Mission Section - REDUCED HEIGHT */
     .mission-section {
       background: linear-gradient(135deg, #FFF8E1, #FFF0C9);
       padding: 1rem 1rem;
@@ -525,7 +526,7 @@
     }
 
     .mission-text {
-      font-size: 1.2rem;
+      font-size: 1rem;
       line-height: 1.8;
       color: #555;
       margin-bottom: 2rem;
@@ -582,11 +583,9 @@
       border-radius: 50%;
     }
 
-
-
     /* Location & Service Info Panel */
     .info-section {
-      padding: 6rem 2rem;
+      padding: 5rem 2rem;
       background-color: white;
     }
 
@@ -609,7 +608,7 @@
     }
 
     .info-header h2 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       color: #333;
       margin-bottom: 1rem;
       position: relative;
@@ -622,7 +621,7 @@
       bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
+      width: 60px;
       height: 3px;
       background: #F7A91A;
     }
@@ -637,7 +636,7 @@
     .info-card {
       background: white;
       border-radius: 12px;
-      padding: 2.5rem;
+      padding: 2rem;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
       border: 1px solid rgba(0, 0, 0, 0.05);
@@ -669,8 +668,8 @@
     }
 
     .info-icon {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       background: rgba(247, 169, 26, 0.1);
       border-radius: 50%;
       display: flex;
@@ -687,8 +686,8 @@
     }
 
     .info-icon svg {
-      width: 30px;
-      height: 30px;
+      width: 24px;
+      height: 24px;
       stroke: #F7A91A;
       transition: all 0.3s ease;
     }
@@ -699,13 +698,13 @@
     }
 
     .info-content h3 {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: #333;
       margin-bottom: 0.8rem;
     }
 
     .info-content p, .info-content li {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       color: #555;
       line-height: 1.6;
     }
@@ -741,10 +740,10 @@
       min-width: 150px;
     }
 
-    /* Programs and Services Section Styles */
+    /* Programs and Services Section Styles - FIXED HEADING SIZE */
     .programs-section {
       background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-      padding: 6rem 2rem;
+      padding: 5rem 2rem;
       color: #333;
       position: relative;
       overflow: hidden;
@@ -771,7 +770,7 @@
     }
 
     .programs-header h2 {
-      font-size: 1.9rem;
+      font-size: 2.2rem; /* Standardized heading size */
       color: #333;
       margin-bottom: 1rem;
       position: relative;
@@ -784,13 +783,13 @@
       bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
+      width: 60px;
       height: 3px;
       background: #F7A91A;
     }
 
     .programs-header p {
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: #666;
       max-width: 700px;
       margin: 0 auto;
@@ -842,19 +841,19 @@
       color: white;
       padding: 0.5rem 1rem;
       border-radius: 30px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
       margin-bottom: 1rem;
     }
 
     .featured-video-content h3 {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       color: #333;
       margin-bottom: 1rem;
     }
 
     .featured-video-content p {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       color: #666;
       line-height: 1.6;
       margin-bottom: 1.5rem;
@@ -864,7 +863,7 @@
       display: flex;
       gap: 1.5rem;
       color: #888;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     .video-date, .video-duration {
@@ -987,13 +986,13 @@
     }
 
     .video-info h4 {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       color: #333;
       margin-bottom: 0.8rem;
     }
 
     .video-info p {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #666;
       line-height: 1.5;
     }
@@ -1099,7 +1098,7 @@
     }
 
     .social-title {
-      font-size: 3rem;
+      font-size: 2.2rem;
       font-weight: 700;
       color: #F7A91A; /* Gold color */
       margin-bottom: 1.5rem;
@@ -1115,7 +1114,7 @@
     }
 
     .social-subtitle {
-      font-size: 1.5rem;
+      font-size: 1.1rem;
       color: white;
       margin-bottom: 2rem;
       max-width: 700px;
@@ -1146,33 +1145,48 @@
     }
 
     .social-link {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 50%;
+      border-radius: 12px;
       background: #F7A91A; /* Gold background */
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
     }
 
     .social-link:hover {
-      transform: translateY(-5px) scale(1.1);
+      transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(247, 169, 26, 0.4);
     }
 
     .social-link svg {
-      width: 30px;
-      height: 30px;
+      width: 22px;
+      height: 22px;
       stroke: #333;
       fill: #333;
       transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
     }
 
-    .social-link:hover svg {
-      stroke: #000;
-      fill: #000;
+    .social-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .social-link:hover::before {
+      transform: translateY(0);
     }
 
     /* Carousel navigation */
@@ -1235,10 +1249,10 @@
       stroke: white;
     }
 
-    /* Contact Form Section */
+    /* Contact Form Section - FIXED HEADING SIZE */
     .contact-section {
       background-color: #f9f9f9;
-      padding: 6rem 2rem;
+      padding: 5rem 2rem;
       position: relative;
       overflow: hidden;
     }
@@ -1277,20 +1291,34 @@
     }
 
     .contact-header h2 {
-      font-size: 2rem;
+      font-size: 2.2rem; /* Standardized heading size */
       color: #333;
       margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #F7A91A;
     }
 
     .contact-underline {
-      width: 80px;
+      width: 60px;
       height: 3px;
       background: linear-gradient(to right, #F7A91A, rgba(247, 169, 26, 0.3));
       margin: 0 auto 1.5rem;
+      display: none; /* Hide this since we're using the ::after pseudo-element */
     }
 
     .contact-header p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #666;
       max-width: 700px;
       margin: 0 auto;
@@ -1325,8 +1353,8 @@
     }
 
     .contact-icon {
-      width: 50px;
-      height: 50px;
+      width: 45px;
+      height: 45px;
       background: rgba(255, 255, 255, 0.2);
       border-radius: 50%;
       display: flex;
@@ -1337,27 +1365,31 @@
     }
 
     .contact-icon svg {
+      width: 22px;
+      height: 22px;
       stroke: #333;
     }
 
     .contact-text h3 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 0.5rem;
     }
 
     .contact-text p {
-      font-size: 1rem;
+      font-size: 0.95rem;
       line-height: 1.5;
     }
 
     /* Social Media Icons in Contact Section */
     .contact-info .social-link {
       background: rgba(255, 255, 255, 0.2);
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
     }
 
     .contact-info .social-link svg {
+      width: 20px;
+      height: 20px;
       stroke: #333;
       fill: #333;
     }
@@ -1402,7 +1434,7 @@
     .input-group textarea {
       width: 100%;
       padding: 0.75rem 0;
-      font-size: 1rem;
+      font-size: 0.95rem;
       border: none;
       border-bottom: 1px solid #ddd;
       background: transparent;
@@ -1414,7 +1446,7 @@
       position: absolute;
       top: 0.75rem;
       left: 0;
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #999;
       pointer-events: none;
       transition: all 0.3s ease;
@@ -1457,10 +1489,10 @@
       align-items: center;
       justify-content: center;
       gap: 0.75rem;
-      padding: 1rem 2rem;
+      padding: 0.9rem 2rem;
       background: linear-gradient(135deg, #F9D29D, #F7A91A);
       color: #333;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       border: none;
       border-radius: 30px;
@@ -1533,11 +1565,11 @@
     }
 
     .footer-logo img {
-      height: 50px;
+      height: 45px;
     }
 
     .footer-logo h3 {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       font-weight: 600;
     }
 
@@ -1548,7 +1580,7 @@
     }
 
     .footer-column h4 {
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin-bottom: 1.25rem;
       position: relative;
       display: inline-block;
@@ -1576,6 +1608,7 @@
       color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
       transition: all 0.3s ease;
+      font-size: 0.9rem;
     }
 
     .footer-column ul li a:hover {
@@ -1590,7 +1623,7 @@
     }
 
     .footer-bottom p {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: rgba(255, 255, 255, 0.5);
     }
 
@@ -1640,12 +1673,119 @@
     /* Pulse animation for live indicator */
     .live-indicator {
       display: inline-block;
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       background-color: #ff0000;
       border-radius: 50%;
       margin-right: 8px;
       animation: pulse 1.5s infinite;
+    }
+
+    /* Email overlay and modal styles */
+    .email-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .email-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 5px solid rgba(247, 169, 26, 0.3);
+      border-radius: 50%;
+      border-top-color: #F7A91A;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .email-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      z-index: 1001;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      opacity: 1;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .email-modal.hidden {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+      pointer-events: none;
+    }
+
+    .modal-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(247, 169, 26, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+
+    .modal-icon svg {
+      width: 40px;
+      height: 40px;
+      stroke: #F7A91A;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .modal-message {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .modal-close {
+      padding: 0.8rem 2rem;
+      background: linear-gradient(135deg, #F9D29D, #F7A91A);
+      color: #333;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-close:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
     @keyframes pulse {
@@ -1739,7 +1879,7 @@
       color: #333;
       text-decoration: none;
       padding: 1rem 0;
-      font-size: 1.1rem;
+      font-size: 1rem;
       border-bottom: 1px solid #eee;
       transition: all 0.3s ease;
       display: block;
@@ -1780,11 +1920,11 @@
       }
 
       .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
       }
 
       .hero-title span {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
       }
 
       .circle-row {
@@ -1799,12 +1939,24 @@
 
       .mission-content {
         grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .mission-text-container {
+        order: 1; /* This puts the text at the top */
+      }
+      
+      .pastor-image-container {
+        order: 2; /* This puts the image at the bottom */
+        margin-top: 2rem; /* Add some space between text and image */
+        max-width: 100%; /* Keep image full width on mobile */
       }
 
-      /* Pastor image container size for mobile - EXTREMELY LARGE */
+      /* Pastor image container size for mobile */
       .pastor-image-container {
-        margin-top: 2rem;
-        max-width: 100%; /* Take full width on mobile */
+        max-width: 100%;
+        height:100%;
       }
       
       /* Improve responsiveness of Location and Service Time sections on mobile */
@@ -1818,17 +1970,17 @@
       }
       
       .info-icon {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
         margin-right: 1rem;
       }
       
       .info-content h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
       
       .info-content p, .info-content li {
-        font-size: 1rem;
+        font-size: 0.9rem;
       }
       
       .service-list li {
@@ -1840,11 +1992,11 @@
       }
       
       .social-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
       
       .social-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
       
       .form-group {
@@ -1854,11 +2006,11 @@
 
     @media (max-width: 480px) {
       .hero-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
       
       .hero-title span {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
       }
       
       .hero-description {
@@ -1872,19 +2024,23 @@
       
       .about-header h2,
       .mission-header h2,
-      .info-header h2 {
-        font-size: 1.8rem;
+      .info-header h2,
+      .programs-header h2,
+      .contact-header h2 {
+        font-size: 1.8rem; /* Consistent heading size for mobile */
       }
       
       .circle-image {
-        width: 180px;
-        height: 180px;
+        width: 160px;
+        height: 160px;
       }
       
-      /* Pastor image container size for small mobile - EXTREMELY LARGE */
+      /* Pastor image container size for small mobile */
       .pastor-image-container {
-        max-width: 100%; /* Take full width on small mobile */
-        padding: 0; /* Remove padding to maximize size */
+        width: 100%;
+        height:auto;
+        padding: 0;
+        margin-top: 0; /* Reset margin */
       }
       
       .social-links {
@@ -1892,13 +2048,13 @@
       }
       
       .social-link {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
       }
       
       .social-link svg {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
       }
     }
 
@@ -1912,19 +2068,19 @@
       }
       
       .hero-title {
-        font-size: 3.5rem;
+        font-size: 3rem;
       }
       
       .logo img {
-        height: 50px;
+        height: 45px;
       }
 
       .hero-subtitle {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
 
       .hero-description {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
       
       .contact-content {
@@ -1982,9 +2138,9 @@
         grid-template-columns: repeat(3, 1fr);
       }
       
-      /* Pastor image container size for tablet/desktop - LARGER */
+      /* Pastor image container size for tablet/desktop */
       .pastor-image-container {
-        max-width: 600px; /* Increased size for tablet */
+        max-width: 800px;
       }
       
       /* Video gallery responsive layout */
@@ -2012,25 +2168,25 @@
 
     @media (min-width: 1024px) {
       .hero-title {
-        font-size: 4.5rem;
+        font-size: 3.5rem;
       }
 
       .hero-title span {
-        font-size: 3rem;
+        font-size: 2.5rem;
       }
 
       .hero-description {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
       }
 
       .btn {
-        font-size: 1.1rem;
-        padding: 1.2rem 3rem;
+        font-size: 1rem;
+        padding: 1rem 2.5rem;
       }
       
-      /* Pastor image container size for large desktop - LARGER */
+      /* Pastor image container size for large desktop */
       .pastor-image-container {
-        max-width: 800px; /* Increased size for large desktop */
+        max-width: 800px;
       }
       
       /* Video gallery responsive layout */
@@ -2059,7 +2215,6 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="programs.html">Programs & Services</a>
-      <a href="location.html">Location & Services</a>
       <a href="contact.html">Contact</a>
     </div>
     <button class="menu-toggle" id="menuToggle">
@@ -2210,8 +2365,8 @@
               <h3>Service Times</h3>
               <ul class="service-list">
                 <li><span class="service-name">BOOTCAMP SERVICE:</span> Every Sunday (8:30- 10:30am)</li>
-                <li><span class="service-name">Rhema Service:</span> Every Thursday (5:30-7:30am)</li>
-                <li><span class="service-name">Prayer Chain:</span> Every First Saturday Of Every Month</li>
+                <li><span class="service-name">Rhema Service:</span> Every Thursday (5:30-7:30pm)</li>
+                <li><span class="service-name">Prayer Chain:</span> Every First Saturday Of Every Month (5:00- 7:00am)</li>
               </ul>
             </div>
           </div>
@@ -2314,19 +2469,19 @@
       <div class="social-overlay"></div>
       <div class="social-content">
         <h2 class="social-title">Connect With Us</h2>
-        <p class="social-subtitle">Follow us on social media to stay updated with our latest events, sermons, and community activities.</p>
+        <p class="social-subtitle">Follow Stream of Grace on social media to stay updated with our latest events, sermons, and community activities.</p>
         <div class="social-links">
-          <a href="https://www.facebook.com/pplipton" class="social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          <a href="https://www.facebook.com/pplipton" class="social-link" title="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02Z"></path></svg>
           </a>
-          <a href="https://www.instagram.com/sgci11?igsh=MzRlODBiNWFlZA==" class="social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="white"></path><circle cx="17.5" cy="6.5" r="1.5" fill="white"></circle></svg>
+          <a href="https://www.instagram.com/sgci11?igsh=MzRlODBiNWFlZA==" class="social-link" title="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3Z"></path></svg>
           </a>
-          <a href="https://youtube.com/@porchchroniclespod?si=J3Hp0c731-0iEjUI" class="social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"></polygon></svg>
+          <a href="https://youtube.com/@porchchroniclespod?si=J3Hp0c731-0iEjUI" class="social-link" title="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73Z"></path></svg>
           </a>
-          <a href="https://vm.tiktok.com/ZMB7va1ax/" class="social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path></svg>
+          <a href="https://vm.tiktok.com/ZMB7va1ax/" class="social-link" title="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.59-1.16-2.59-2.5 0-1.4 1.16-2.5 2.59-2.5.27 0 .53.04.77.13v-3.13c-.31-.05-.62-.1-.93-.1-2.38 0-4.3 1.91-4.3 4.3 0 2.38 1.92 4.3 4.3 4.3 2.38 0 4.3-1.92 4.3-4.3V7.04c.93.85 2.16 1.31 3.45 1.31v-3.1c-.66.06-1.42-.4-.89.57z"></path></svg>
           </a>
         </div>
       </div>
@@ -2338,11 +2493,11 @@
         <h2 class="social-title">Watch Our Videos</h2>
         <p class="social-subtitle">Subscribe to our channels for inspiring sermons, worship sessions, and special events.</p>
         <div class="social-links">
-          <a href="https://youtube.com/@porchchroniclespod?si=J3Hp0c731-0iEjUI" class="social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"></polygon></svg>
+          <a href="https://youtube.com/@porchchroniclespod?si=J3Hp0c731-0iEjUI" class="social-link" title="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73Z"></path></svg>
           </a>
-          <a href="https://vm.tiktok.com/ZMB7va1ax/" class="social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path></svg>
+          <a href="https://vm.tiktok.com/ZMB7va1ax/" class="social-link" title="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.59-1.16-2.59-2.5 0-1.4 1.16-2.5 2.59-2.5.27 0 .53.04.77.13v-3.13c-.31-.05-.62-.1-.93-.1-2.38 0-4.3 1.91-4.3 4.3 0 2.38 1.92 4.3 4.3 4.3 2.38 0 4.3-1.92 4.3-4.3V7.04c.93.85 2.16 1.31 3.45 1.31v-3.1c-.66.06-1.42-.4-.89.57z"></path></svg>
           </a>
         </div>
       </div>
@@ -2363,7 +2518,7 @@
     </div>
   </section>
 
-  <!-- Contact Form Section -->
+  <!-- Contact Form Section - FIXED HEADING SIZE -->
   <section class="contact-section" id="contact">
     <div class="contact-container">
       <div class="contact-header fade-up">
@@ -2390,7 +2545,7 @@
             </div>
             <div class="contact-text">
               <h3>Email</h3>
-              <p>info@streamofgrace.org</p>
+              <p>streamofgraceministries@gmail.com</p>
             </div>
           </div>
           
@@ -2405,22 +2560,22 @@
           </div>
           
           <div class="social-links">
-            <a href="#" class="social-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            <a href="https://www.facebook.com/pplipton" class="social-link" title="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02Z"></path></svg>
             </a>
-            <a href="#" class="social-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="white"></path><circle cx="17.5" cy="6.5" r="1.5" fill="white"></circle></svg>
+            <a href="https://www.instagram.com/sgci11?igsh=MzRlODBiNWFlZA==" class="social-link" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3Z"></path></svg>
             </a>
-            <a href="#" class="social-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            <a href="https://youtube.com/@porchchroniclespod?si=J3Hp0c731-0iEjUI" class="social-link" title="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73Z"></path></svg>
             </a>
-            <a href="#" class="social-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path></svg>
+            <a href="https://vm.tiktok.com/ZMB7va1ax/" class="social-link" title="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.59-1.16-2.59-2.5 0-1.4 1.16-2.5 2.59-2.5.27 0 .53.04.77.13v-3.13c-.31-.05-.62-.1-.93-.1-2.38 0-4.3 1.91-4.3 4.3 0 2.38 1.92 4.3 4.3 4.3 2.38 0 4.3-1.92 4.3-4.3V7.04c.93.85 2.16 1.31 3.45 1.31v-3.1c-.66.06-1.42-.4-.89.57z"></path></svg>
             </a>
           </div>
         </div>
         
-        <form class="contact-form fade-up">
+        <form class="contact-form fade-up" id="contact-form">
           <div class="form-group">
             <div class="input-group">
               <input type="text" id="name" name="name" required>
@@ -2447,7 +2602,7 @@
             <div class="input-highlight"></div>
           </div>
           
-          <button type="submit" class="submit-button">
+          <button type="submit" id="submit-btn" class="submit-button">
             <span>Send Message</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
           </button>
@@ -2455,6 +2610,20 @@
       </div>
     </div>
   </section>
+
+  <!-- Email Overlay and Modal -->
+  <div class="email-overlay hidden" id="email-overlay">
+    <div class="spinner"></div>
+  </div>
+  
+  <div class="email-modal hidden" id="email-modal">
+    <div class="modal-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+    </div>
+    <h3 class="modal-title" id="modal-title">Success!</h3>
+    <p class="modal-message" id="modal-message">Your message has been sent successfully.</p>
+    <button class="modal-close" id="modal-close">Close</button>
+  </div>
 
   <!-- Footer Section -->
   <footer class="footer fade-up">
@@ -2476,15 +2645,14 @@
           </ul>
         </div>
         
-
         <div class="footer-column">
           <h4>Connect</h4>
           <ul>
             <li><a href="contact.html">Contact Us</a></li>
             <li><a href="https://www.facebook.com/pplipton">Facebook</a></li>
             <li><a href="https://www.instagram.com/sgci11?igsh=MzRlODBiNWFlZA==">Instagram</a></li>
-            <li><a href="https://vm.tiktok.com/ZMB7va1ax/">Tiktok</a></li>
-            <li><a href="https://youtube.com/@porchchroniclespod?si=J3Hp0c731-0iEjUI">Youtube</a></li>
+            <li><a href="https://vm.tiktok.com/ZMB7va1ax/">TikTok</a></li>
+            <li><a href="https://youtube.com/@porchchroniclespod?si=J3Hp0c731-0iEjUI">YouTube</a></li>
           </ul>
         </div>
       </div>
@@ -2642,60 +2810,6 @@
       // Call the observe function
       observeElements();
 
-      // Form interaction enhancements
-      const enhanceFormInteraction = () => {
-        const form = document.querySelector('.contact-form');
-        if (!form) return;
-        
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          // Simple form validation
-          let isValid = true;
-          const inputs = form.querySelectorAll('input, textarea');
-          
-          inputs.forEach(input => {
-            if (!input.value.trim()) {
-              isValid = false;
-              input.classList.add('error');
-            } else {
-              input.classList.remove('error');
-            }
-          });
-          
-          if (isValid) {
-            // Show success message (in a real implementation, you would send the form data to a server)
-            const submitButton = form.querySelector('.submit-button');
-            const originalText = submitButton.innerHTML;
-            
-            submitButton.innerHTML = '<span>Message Sent!</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-            submitButton.disabled = true;
-            
-            // Reset form after delay
-            setTimeout(() => {
-              form.reset();
-              submitButton.innerHTML = originalText;
-              submitButton.disabled = false;
-            }, 3000);
-          }
-        });
-        
-        // Add focus effects
-        const inputs = form.querySelectorAll('input, textarea');
-        inputs.forEach(input => {
-          input.addEventListener('focus', function() {
-            this.parentElement.classList.add('focused');
-          });
-          
-          input.addEventListener('blur', function() {
-            this.parentElement.classList.remove('focused');
-          });
-        });
-      };
-      
-      // Call the form enhancement function
-      enhanceFormInteraction();
-      
       // Programs section - YouTube video click handlers
       const videoOverlays = document.querySelectorAll('.video-overlay');
       videoOverlays.forEach(overlay => {
@@ -2728,6 +2842,81 @@
           thumbnailContainer.appendChild(iframe);
         });
       });
+
+ const overlay = document.getElementById('email-overlay');
+            const modal = document.getElementById('email-modal');
+            const title = document.getElementById('modal-title');
+            const msg = document.getElementById('modal-message');
+            const closeBtn = document.getElementById('modal-close');
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+
+            // Close modal when close button is clicked
+            closeBtn.addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+
+            // Close modal when clicking outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+
+            // Handle form submission
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Show loading overlay
+                overlay.classList.remove('hidden');
+                submitBtn.disabled = true;
+                
+                // Gather form data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                
+                try {
+                    // Send form data to backend API
+                    const response = await fetch('/api/send', {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json' 
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    // Hide loading overlay
+                    overlay.classList.add('hidden');
+                    submitBtn.disabled = false;
+                    
+                    // Parse response
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        title.textContent = 'Success!';
+                        msg.textContent = result.message;
+                        form.reset(); // Clear form on success
+                    } else {
+                        title.textContent = 'Error';
+                        msg.textContent = result.message;
+                    }
+                    
+                    // Show modal
+                    modal.classList.remove('hidden');
+                    
+                } catch (error) {
+                    // Hide loading overlay
+                    overlay.classList.add('hidden');
+                    submitBtn.disabled = false;
+                    
+                    // Show error modal
+                    title.textContent = 'Error';
+                    msg.textContent = 'Network error. Please check your connection and try again.';
+                    modal.classList.remove('hidden');
+                    
+                    console.error('Fetch error:', error);
+                }
+            });
     });
   </script>
 </body>
