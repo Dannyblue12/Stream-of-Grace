@@ -3,9 +3,10 @@ const nodemailer = require("nodemailer")
 export default async function handler(req, res) {
   // Set CORS headers
   res.setHeader("Access-Control-Allow-Origin", "*")
-  res.setHeader("Access-Control-Allow-Methods", "POST")
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS")
   res.setHeader("Access-Control-Allow-Headers", "Content-Type")
 
+  // Handle preflight requests
   if (req.method === "OPTIONS") {
     res.status(200).end()
     return
@@ -38,24 +39,19 @@ export default async function handler(req, res) {
       })
     }
 
-    // Check if environment variables are available
+    // Check environment variables
     const emailUser = process.env.EMAIL_USER
     const emailPass = process.env.EMAIL_PASS
 
     if (!emailUser || !emailPass) {
-      console.error("Missing email credentials in environment variables")
+      console.error("Missing email credentials")
       return res.status(500).json({
         success: false,
-        message: "Server configuration error. Please contact support.",
+        message: "Server configuration error",
       })
     }
 
-    console.log("Creating transporter with:", {
-      host: "smtp.hostinger.com",
-      port: 587,
-      user: emailUser,
-    })
-
+    // Create transporter
     const transporter = nodemailer.createTransporter({
       host: "smtp.hostinger.com",
       port: 587,
@@ -69,13 +65,10 @@ export default async function handler(req, res) {
       },
     })
 
-    // Verify transporter configuration
-    await transporter.verify()
-    console.log("Transporter verified successfully")
-
-    const mailOptions = {
-      from: `"${name}" <${emailUser}>`, // Use your authenticated email as sender
-      replyTo: email, // Set reply-to as the form submitter's email
+    // Send email
+    await transporter.sendMail({
+      from: `"${name}" <${emailUser}>`,
+      replyTo: email,
       to: "info@streamofgracechapel.org",
       subject: `Contact Form: ${subject}`,
       html: `
@@ -85,43 +78,17 @@ export default async function handler(req, res) {
         <p><strong>Subject:</strong> ${subject}</p>
         <p><strong>Message:</strong><br>${message.replace(/\n/g, "<br>")}</p>
       `,
-    }
-
-    console.log("Sending email with options:", {
-      from: mailOptions.from,
-      to: mailOptions.to,
-      subject: mailOptions.subject,
     })
-
-    await transporter.sendMail(mailOptions)
-    console.log("Email sent successfully")
 
     return res.status(200).json({
       success: true,
       message: "Message sent successfully!",
     })
   } catch (error) {
-    console.error("Detailed error:", {
-      message: error.message,
-      code: error.code,
-      command: error.command,
-      stack: error.stack,
-    })
-
-    // Return specific error messages based on error type
-    let errorMessage = "Failed to send message. Please try again later."
-
-    if (error.code === "EAUTH") {
-      errorMessage = "Email authentication failed. Please contact support."
-    } else if (error.code === "ECONNECTION") {
-      errorMessage = "Could not connect to email server. Please try again later."
-    } else if (error.code === "ETIMEDOUT") {
-      errorMessage = "Email server timeout. Please try again later."
-    }
-
+    console.error("Email error:", error)
     return res.status(500).json({
       success: false,
-      message: errorMessage,
+      message: "Failed to send message. Please try again later.",
     })
   }
 }
