@@ -1,7 +1,15 @@
 {
-  "functions": {
-    "api/send.js": {
-      "runtime": "nodejs18.x"
+  "builds": [
+    {
+      "src": "api/send.js",
+      "use": "@vercel/node"
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/api/send",
+      "dest": "api/send.js",
+      "methods": ["POST"]
+    }
+  ]
 }
