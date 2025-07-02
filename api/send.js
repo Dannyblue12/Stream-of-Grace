@@ -60,9 +60,7 @@ export default async function handler(req, res) {
         user: emailUser,
         pass: emailPass,
       },
-      tls: {
-        rejectUnauthorized: false,
-      },
+     
     })
 
     // Send email
